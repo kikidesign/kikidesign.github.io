@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  “编写第一篇博客”
+title:  编写第一篇博客
 date:   2015-07-09 17:26:20
 categories: blog update
 ---
@@ -18,8 +18,10 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
  
-查看[Jekyll docs][jekyll]的帮助文件以获取更多信息，了解如何发挥[Jekyll]的最大功效。所有错误/特征都会归档在[Jekyll’s GitHub repo][jekyll-gh]。如果你有问题，你可以在[Jekyll’s dedicated Help repository][jekyll-help]上提问。
+查看 [Jekyll docs][jekyll] 的帮助文件以获取更多信息，了解如何发挥[Jekyll]的最大功效。所有错误/特征都会归档在 [Jekyll’s GitHub repo][jekyll-gh]。如果你有问题，你可以在 [Jekyll’s dedicated Help repository][jekyll-help]上提问。
 
 jekyll官网:    http://jekyllrb.com
+
 jekyll版本库:  https://github.com/jekyll/jekyll
+
 jekyll帮助:    https://github.com/jekyll/jekyll-help
