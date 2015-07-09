@@ -4,7 +4,7 @@ email: kikismail@gmail.com
 description: > # this means to ignore newlines until "baseurl:"
   an iOS Xcode programmer.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://Kikidesign.cn” # the base hostname & protocol for your site
+url: "http://kikidesign.cn" # the base hostname & protocol for your site
 twitter_username: Kikidesign
 github_username:  Kikidesign
 
