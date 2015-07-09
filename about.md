@@ -1,8 +1,10 @@
 ---
 layout: page
-title: About
+title: 关于我
 permalink: /about/
 ---
+
+这是我的技术博客
 
 This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](http://jekyllrb.com/)
 
