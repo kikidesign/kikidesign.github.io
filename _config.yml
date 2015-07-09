@@ -1,10 +1,11 @@
 # Site settings
 title: Leo Ling
-email: kikismail@gmail.com
+email: your-email@domain.com
 description: > # this means to ignore newlines until "baseurl:"
-  an iOS Xcode programmer
+  an iOS Xcode programmer.
 baseurl: "" # the subpath of your site, e.g. /blog/
-url: "http://www.kikismail.cn” # the base hostname & protocol for your site
+url: "http://kikismail.cn" # the base hostname & protocol for your site
+twitter_username: Kikidesign
 github_username:  Kikidesign
 
 # Build settings
