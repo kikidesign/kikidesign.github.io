@@ -14,6 +14,9 @@
       </a>
 
       <div class="trigger">
+          <form class="navbar-search pull-right" action="search.html">
+              <input type="text" class="search-query" placeholder="Search">
+          </form>
         {% for page in site.pages %}
           {% if page.title %}
           <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
@@ -23,5 +26,6 @@
     </nav>
 
   </div>
-
+  <script src="http://luyueming.info/blog/2013/05/21/{{ BASE_PATH }}/js/jquery-1.6.1.min.js">
+      <script src="http://luyueming.info/blog/2013/05/21/{{ BASE_PATH }}/js/jquery-tapir.min.js">
 </header>
