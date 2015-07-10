@@ -19,4 +19,5 @@ print_hi('Tom')
 #=> prints 'Hi, Tom' to STDOUT.
 {% endhighlight %}
  
-查看 <a href="http://jekyll.bootcss.com/" target="_blank">Jekyll官网汉化</a> 的帮助文件以获取更多信息，了解如何发挥 Jekyll 的最大功效。所有错误/特征都会归档在 <a href="https://github.com/jekyll/jekyll" target="_blank">Jekyll-Github</a>。如果你有问题，你可以在 <a href="http://github.com/jekyll/jekyll-help" target="_blank">Jekyll-Help</a>上提问。
+
+查看 <a href="http://jekyll.bootcss.com/" target="_blank">Jekyll中文官网</a> 的帮助文件以获取更多信息，了解如何发挥 Jekyll 的最大功效。所有错误/特征都会归档在 <a href="https://github.com/jekyll/jekyll" target="_blank">Jekyll-Github</a> 。如果你有问题，你可以在 <a href="http://github.com/jekyll/jekyll-help" target="_blank">Jekyll-Help</a> 上提问。
