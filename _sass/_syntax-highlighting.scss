@@ -6,7 +6,7 @@
     @extend %vertical-rhythm;
 
     .c     { color: #998; font-style: italic } // Comment
-    .err   { color: #e6db74; background-color: #e3d2d2 } // Error
+    .err   { color: #e6db74} // Error
     .k     { font-weight: bold } // Keyword
     .o     { font-weight: bold } // Operator
     .cm    { color: #998; font-style: italic } // Comment.Multiline
