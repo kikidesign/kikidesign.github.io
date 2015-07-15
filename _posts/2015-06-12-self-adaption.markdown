@@ -1,8 +1,8 @@
 ---
 layout: post
-title:  iOS8下UILabel如何自适应高度（自动换行）
+title:  iOS8：UILabel如何自适应高度（自动换行）
 date:   2015-06-12 16:30:51
-categories: blog update
+categories: iOS blog update
 ---
 
 直接上代码
