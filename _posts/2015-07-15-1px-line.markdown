@@ -18,6 +18,5 @@ line1.backgroundColor=[UIColor colorWithRed:0.87 green:0.87 blue:0.87 alpha:1];
 [cell.contentView addSubview:line1];
 {% endhighlight %}
 
-[google]: http://google.com/        "Google"
-[yahoo]:  http://search.yahoo.com/  "Yahoo Search"
-[iOS: 如何正确的绘制1像素的线]:    http://www.cocoachina.com/ios/20150629/12278.html    "参考链接："
+参考链接：
+[iOS: 如何正确的绘制1像素的线](http://www.cocoachina.com/ios/20150629/12278.html "iOS: 如何正确的绘制1像素的线")
