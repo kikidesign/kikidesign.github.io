@@ -3,6 +3,8 @@
  */
 .highlight {
     background: #fff;
+    word-wrap: break-word;  //设置强行换行
+    word-break: normal;
     @extend %vertical-rhythm;
 
     .c     { color: #998; font-style: italic } // Comment
