@@ -12,7 +12,7 @@ categories: iOS update
 {% endhighlight %}
 但是在对可变数组进行删除操作时却发生了下面的错误：
 
---NSCFArray insertObject:atIndex:]: mutating method sent to immutable object--
+<font color='red'>NSCFArray insertObject:atIndex:]: mutating method sent to immutable object</font>
 
 可数组明明是用NSMutableArray声明的呀...解决方法：再声明一个可变数组进行删除:
 {% highlight ruby %}
