@@ -5,7 +5,7 @@ date:   2015-07-21 16:46:30
 categories: iOS update
 ---
 
-去掉NavigationBar底部的那条黑线，在AppDelegate.m文件中的方法didFinishLaunchingWithOptions:里面添加如下代码来修改:
+去掉NavigationBar底部的那条黑线，在AppDelegate.m文件中的方法didFinishLaunchingWithOptions里面添加如下代码来修改:
 
 {% highlight ruby %}
 	    CGSize imageSize = CGSizeMake([[UIScreen mainScreen] bounds].size.width, 64);
