@@ -1,9 +1,11 @@
 ---
 layout: post
-title:  "自定义navigationItem顶部标题"
+title:  "自定义navigation顶部标题"
 date:   2015-07-27 16:39:40
 categories: iOS update
 ---
+
+自定义navigation的顶部标题
 
 {% highlight ruby %}
     UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width-30, 18)];
