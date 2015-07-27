@@ -7,6 +7,7 @@ categories: iOS update
 
 
 {% highlight ruby %}
-
+NSInteger questionId = [[newQuestion objectForKey:@"question_id"] integerValue];
 {% endhighlight %}
+
 
