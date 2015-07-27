@@ -7,13 +7,13 @@ categories: iOS update
 
 
 {% highlight ruby %}
-    UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width-30, 18)];
-    UILabel *titleText = [[UILabel alloc] initWithFrame: CGRectMake((width-30-72)/2, 0, 72, 18)];
-    titleText.font = [UIFont systemFontOfSize:18];
-    [titleText setTextColor:[UIColor whiteColor]];
-    [titleText setText:@"积分商城"];
-    [titleView addSubview:titleText];
-    self.navigationItem.titleView = titleView;
+UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width-30, 18)];
+UILabel *titleText = [[UILabel alloc] initWithFrame: CGRectMake((width-30-72)/2, 0, 72, 18)];
+titleText.font = [UIFont systemFontOfSize:18];
+[titleText setTextColor:[UIColor whiteColor]];
+[titleText setText:@"积分商城"];
+[titleView addSubview:titleText];
+self.navigationItem.titleView = titleView;
 {% endhighlight %}
 
 
