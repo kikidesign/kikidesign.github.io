@@ -5,6 +5,8 @@ date:   2015-08-12 13:10:50
 categories: iOS update
 ---
 
-![xcode6 ineligible devices](http://kikidesign.github.io/_image/xcode6-ineligible devices.jpg)
+![Deployment-Target](kikidesign.github.io/raw/master/_image/Deployment-Target.jpg)
+
+![xcode6 ineligible devices](kikidesign.github.io/blob/master/_image/xcode6-ineligible%20devices.jpg)
 
 
