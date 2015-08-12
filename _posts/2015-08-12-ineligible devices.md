@@ -7,6 +7,6 @@ categories: iOS update
 
 ![Deployment-Target](kikidesign.github.io/raw/master/_image/Deployment-Target.jpg)
 
-![xcode6 ineligible devices](kikidesign.github.io/blob/master/_image/xcode6-ineligible%20devices.jpg)
+![xcode6 ineligible devices](kikidesign.github.io/raw/master/_image/xcode6-ineligible%20devices.jpg)
 
 
