@@ -18,6 +18,7 @@ categories: iOS tabBar
 @end
 {% endhighlight %}
 
+.m 文件
 {% highlight ruby %}
 #import "ViewController.h"
 @interface ViewController ()
