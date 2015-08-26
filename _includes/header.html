@@ -14,9 +14,9 @@
       </a>
 
       <div class="trigger">
-<!--          <form class="navbar-search pull-right" action="search.html">-->
-<!--              <input type="text" class="search-query" placeholder="搜索...">-->
-<!--          </form>-->
+          <form class="navbar-search pull-right" action="search.html">
+              <input type="text" class="search-query" placeholder="搜索...">
+          </form>
         {% for page in site.pages %}
           {% if page.title %}
           <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a>
