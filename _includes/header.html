@@ -18,13 +18,19 @@
           {% if page.title %}
           <!-- <a class="page-link" href="{{ page.url | prepend: site.baseurl }}">{{ page.title }}</a> -->
           <input type="text" class="search-query" placeholder="站内搜索">
-          <img src="https://raw.githubusercontent.com/kikidesign/kikidesign.github.io/master/_image/search.png" width="20" height="20" />
+          <img id="search_btn" src="https://raw.githubusercontent.com/kikidesign/kikidesign.github.io/master/_image/search.png" width="20" height="20" />
           {% endif %}
         {% endfor %}
       </div>
     </nav>
 
   </div>
-<!--  <script src="jquery-1.6.1.min.js">-->
-<!--  <script src="jquery-tapir.min.js">-->
+  <script src="../_js/jquery.min.js" type="text/javascript"/> 
+  <script type="text/javascript">
+	$(document).ready(function(){
+	  $("search_btn").click(function(){
+	    jAlert('弹出弹出！！！');
+	  });
+    });
+  </script>
 </header>
