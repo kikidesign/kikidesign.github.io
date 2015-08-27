@@ -12,31 +12,11 @@
   <script src="https://rawgit.com/kikidesign/kikidesign.github.io/master/_js/jquery.min.js" type="text/javascript"></script>
   <script type="text/javascript">
     $(document).ready(function(){ 
-
-      $.ajax({
-        url: "kikidesign.github.io/feed.xml",
-        dataType: 'xml',
-        type: 'GET',
-        timeout: 2000,
-        error: function(xml)
-        {
-            alert("加载XML 文件出错！");
-        },
-        success: function(xml)
-        {
-            alert("加载XML 文件成功！");
-            // $(xml).find("taxrate").each(function(i)
-            // {
-            //     // var oid = $(this).attr("id");
-            //     // var lower = $(this).children("lower").text();
-            //     // var upper = $(this).children("upper").text();
-            //     // var rate = $(this).children("rate").text();
-            //     // var buckle = $(this).children("buckle").text();
-                
-            // });
-        }
-      });
-
+      $.ajaxSetup({ //设置全局性的Ajax选项
+                type: "GET",
+                url: "kikidesign.github.io/feed.xml",
+                dataType: "xml"
+        });
       $(".search_input").focus(function() { //获取焦点时触发的时间 
         $(".search_input").attr('placeholder','');
       });
@@ -44,8 +24,19 @@
         $(".search_input").attr('placeholder','站内搜索');
       });
       $(".search_btn").click(function(){
-        var search_txt = $(".search_input").val();
-        alert(search_txt); 
+        $.ajax({  
+                    //请求方式为get  
+                    type: "GET",  
+                    //xml文件位置  
+                    url: "kikidesign.github.io/feed.xml",  
+                    //返回数据格式为xml  
+                    dataType: "xml",  
+                    //请求成功完成后要执行的方法  
+                    success: function (xml) {  
+                        alert(xml);
+                    }  
+                });  
+                return false;  
       }) 
     }); 
   </script>
