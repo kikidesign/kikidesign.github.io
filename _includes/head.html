@@ -12,11 +12,14 @@
   <script src="https://rawgit.com/kikidesign/kikidesign.github.io/master/_js/jquery.min.js" type="text/javascript"></script>
   <script type="text/javascript">
     $(document).ready(function(){ 
-      $(".search_input").focus(function() {
+      $(".search_input").focus(function() { //获取焦点时触发的时间 
         $(".search_input").attr('placeholder','');
       });
+      $('#username').blur(function () {//失去焦点时触发的时间 
+        $(".search_input").attr('placeholder','站内搜索');
+      } 
       $(".search_btn").click(function(){
-        alert('搜索功能正在研发中~'); 
+        alert('搜索功能正在研发中...'); 
       }) 
     }); 
   </script>
