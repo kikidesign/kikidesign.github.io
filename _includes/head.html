@@ -12,11 +12,6 @@
   <script src="https://rawgit.com/kikidesign/kikidesign.github.io/master/_js/jquery.min.js" type="text/javascript"></script>
   <script type="text/javascript">
     $(document).ready(function(){ 
-      $.ajaxSetup({ //设置全局性的Ajax选项
-                type: "GET",
-                url: "kikidesign.github.io/feed.xml",
-                dataType: "xml"
-        });
       $(".search_input").focus(function() { //获取焦点时触发的时间 
         $(".search_input").attr('placeholder','');
       });
@@ -24,6 +19,7 @@
         $(".search_input").attr('placeholder','站内搜索');
       });
       $(".search_btn").click(function(){
+        alert($(".search_input").val());
         $.ajax({  
                     //请求方式为get  
                     type: "GET",  
@@ -36,7 +32,7 @@
                         alert(xml);
                     }  
                 });  
-                return false;  
+        return false;  
       }) 
     }); 
   </script>
