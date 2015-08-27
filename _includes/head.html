@@ -19,7 +19,6 @@
         $(".search_input").attr('placeholder','站内搜索');
       });
       $(".search_btn").click(function(){
-        alert($(".search_input").val());
         $.ajax({  
                     //请求方式为get  
                     type: "GET",  
@@ -28,8 +27,8 @@
                     //返回数据格式为xml  
                     dataType: "xml",  
                     //请求成功完成后要执行的方法  
-                    success: function (xml) {  
-                        alert(xml);
+                    success: function (data) {  
+                        console.log(data);
                     }  
                 });  
         return false;  
