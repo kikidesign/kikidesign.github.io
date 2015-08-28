@@ -36,10 +36,10 @@
                 }); 
 		//获取XML成功后回调函数
 		function GetXMLComplete(xml) {
-      alert(xml);
-		    $(xml).find("item").each(function(i) {
-		        var title = $(this).children("title");          //获得子节点
-            alert(title);
+      alert($(xml).find("channel"));
+		    $(xml).find("channel").each(function(id) {
+		        var item = $(this).children("item");          //获得子节点
+            alert(item);
 		        // var title_vaule = title.text();                 //获取节点文本
 		        // var description_vaule = $(this).children("description"); 
 		        // // var description_vaule = $(this).attr("description");  //获取节点的属性
