@@ -36,11 +36,11 @@
         }); 
     		//获取XML成功后回调函数
     		function GetXMLComplete(xml) {
-           $(xml).find("item").each(function(i) {  
-                var title = $(this).children('title').text();
+           $(xml).find("item").each(function() {
+                var item = $(this);
+                var title = item.children('title').text();
                 alert(title);
-                $('body').append('<h1> 1111122233杀杀杀 </h1>');
-           });  
+           });
     		}
         return false;  
       }) 
