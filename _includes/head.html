@@ -36,11 +36,11 @@
         }); 
     		//获取XML成功后回调函数
     		function GetXMLComplete(xml) {
-           $(xml).find("item").each(function() {
-                var item = $(this);
-                var title = item.children('title').text();
-                alert(title);
-           });
+           // $(xml).find("lastBuildDate").each(function() {
+           //      var item = $(this);
+           //      var title = item.children('title').text();
+                alert($(xml).find("lastBuildDate").text());
+           // });
     		}
         return false;  
       }) 
