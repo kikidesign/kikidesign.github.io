@@ -36,8 +36,8 @@
         }); 
     		//获取XML成功后回调函数
     		function GetXMLComplete(xml) {
-          var title = $(xml).find("lastBuildDate");          //获得子节点  
-          var title_vaule = title.text();                 //获取节点文本  
+          var title = $(xml).find("generator");          //获得子节点  
+          var title_vaule = title.text();                //获取节点文本  
           // var email_vaule = $(this).attr("email");  //获取节点的属性  
           alert(title_vaule);  
            // $(xml).find("item").each(function(i) {  
