@@ -36,6 +36,7 @@
                 }); 
 		//获取XML成功后回调函数
 		function GetXMLComplete(xml) {
+      alert(xml);
 		    $(xml).find("item").each(function(i) {
 		        var title = $(this).children("title");          //获得子节点
             alert(title);
