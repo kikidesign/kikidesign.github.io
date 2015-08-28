@@ -39,7 +39,8 @@
            // $(xml).find("lastBuildDate").each(function() {
            //      var item = $(this);
            //      var title = item.children('title').text();
-                alert($(xml).find("lastBuildDate").text());
+                // alert($(xml).find("lastBuildDate").text());
+                $(".search_input").attr('placeholder',$(xml).find("lastBuildDate"));
            // });
     		}
         return false;  
