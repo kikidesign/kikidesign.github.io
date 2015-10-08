@@ -18,4 +18,5 @@ project.xcworkspace/
 xcuserdata/
 UserInterface.xcuserstate 
 {% endhighlight %}
+
 5. 重新打开Xcode commit, push。
