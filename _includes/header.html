@@ -1,9 +1,6 @@
 <header class="site-header">
-
   <div class="wrapper">
-
     <a class="site-title" href="{{ site.baseurl }}/">{{ site.title }}</a>
-
     <nav class="site-nav">
       <a href="#" class="menu-icon">
         <svg viewBox="0 0 18 15">
@@ -13,6 +10,15 @@
         </svg>
       </a>
     </nav>
-
+    <div id="search">
+        <form action="/search" method="get" class="input-group">
+            <input type="text" id="search-query" class="form-control search-query" name="q" placeholder="Search" autocomplete="off">
+            <span class="input-group-btn">
+                <button class="btn btn-default" type="button">
+                    <span class="glyphicon glyphicon-search"></span>
+                </button>
+            </span>
+        </form>
+    </div>
   </div>
 </header>
