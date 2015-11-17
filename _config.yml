@@ -6,8 +6,7 @@ description: > # this means to ignore newlines until "baseurl:"
 baseurl: "" # the subpath of your site, e.g. /blog/
 url: "kikidesign.github.io" # the base hostname & protocol for your site
 github_username:  Kikidesign
-lunr_search:
-excludes: [atom.xml]
+gems: ['jekyll-lunr-js-search']
 
 # Build settings
 markdown: kramdown

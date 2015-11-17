@@ -9,37 +9,5 @@
   <link rel="stylesheet" href="{{ "/css/main.css" | prepend: site.baseurl }}">
   <link rel="canonical" href="{{ page.url | replace:'index.html','' | prepend: site.baseurl | prepend: site.url }}">
   <link rel="alternate" type="application/rss+xml" title="{{ site.title }}" href="{{ "/feed.xml" | prepend: site.baseurl | prepend: site.url }}" />
-  <script src="https://rawgit.com/kikidesign/kikidesign.github.io/master/_js/jquery.min.js" type="text/javascript"></script>
-  <script type="text/javascript">
-    $(document).ready(function(){ 
-      $(".search_input").focus(function() { //获取焦点时触发的时间 
-        $(".search_input").attr('placeholder','');
-      });
-      $('#username').blur(function () {//失去焦点时触发的时间 
-        $(".search_input").attr('placeholder','站内搜索');
-      });
-      $(".search_btn").click(function(){
-        $.ajax({  
-                    //请求方式为get  
-                    type: "GET",  
-                    //xml文件位置  
-                    url: "https://raw.githubusercontent.com/kikidesign/kikidesign.github.io/master/feed.xml",  
-                    //返回数据格式为xml  
-                    dataType: "xml", 
-                    timeout: 1000,  //设定超时  
-			        cache: false,   //禁用缓存  
-			        error: function(xml) {
-			            alert("加载XML文档出错!");  
-			        }, 
-              //请求成功完成后要执行的方法
-              success: GetXMLComplete
-        }); 
-    		//获取XML成功后回调函数
-    		function GetXMLComplete(xml) {
-
-    		}
-        return false;  
-      }) 
-    }); 
-  </script>
+  <script src="https://rawgit.com/kikidesign/kikidesign.github.io/master/js/jquery.min.js" type="text/javascript"></script>
 </head>
