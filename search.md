@@ -6,13 +6,13 @@ permalink: /search/
 <script src="/js/lunr.min.js" type="text/javascript" charset="utf-8"></script>
 <script src="/js/mustache.js" type="text/javascript" charset="utf-8"></script>
 <script src="/js/date.format.js" type="text/javascript" charset="utf-8"></script>
-<script src="/js/URI.min.js" type="text/javascript" charset="utf-8"></script>
+<script src="/js/URI.js" type="text/javascript" charset="utf-8"></script>
 <script src="/js/jquery.lunr.search.js" type="text/javascript" charset="utf-8"></script>
 <script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
 
 <div id="search">
   <form action="/search" method="get">
-    <input type="text" id="search-query" name="q" placeholder="Search" autocomplete="off">
+    <input type="text" id="search-query" name="q" placeholder="请输入搜索内容..." autocomplete="off">
   </form>
 </div>
 
