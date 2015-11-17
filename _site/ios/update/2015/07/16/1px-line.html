@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>简介</title>
-  <meta name="description" content="一枚码农，极简主义者
-">
+  <title>iOS: 绘制1像素的线</title>
+  <meta name="description" content="首先定义一个画1像素线的一个宏，道理么看到代码想想就应该明白了:#define SINGLE_LINE_WIDTH           (1 / [UIScreen mainScreen].scale)#define SINGLE_LINE_ADJUST_OFFSET   ((1 / [UIScreen main...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="kikidesign.github.io/about/">
+  <link rel="canonical" href="kikidesign.github.io/ios/update/2015/07/16/1px-line.html">
   <link rel="alternate" type="application/rss+xml" title="KikiDesign" href="kikidesign.github.io/feed.xml" />
   <script src="https://rawgit.com/kikidesign/kikidesign.github.io/master/js/jquery.min.js" type="text/javascript"></script>
 </head>
@@ -44,12 +43,24 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">简介</h1>
+    <h1 class="post-title">iOS: 绘制1像素的线</h1>
+    <p class="post-meta">Jul 16, 2015</p>
   </header>
 
   <article class="post-content">
-    <p>这里，是我的技术博客。</p>
+    <p>首先定义一个画1像素线的一个宏，道理么看到代码想想就应该明白了:</p>
 
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="c1">#define SINGLE_LINE_WIDTH           (1 / [UIScreen mainScreen].scale)</span>
+<span class="c1">#define SINGLE_LINE_ADJUST_OFFSET   ((1 / [UIScreen mainScreen].scale) / 2)</span></code></pre></div>
+
+<p>使用方法：</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">UIView</span> <span class="o">*</span><span class="n">line1</span> <span class="o">=</span> <span class="o">[[</span><span class="no">UIView</span> <span class="n">alloc</span><span class="o">]</span> <span class="ss">initWithFrame</span><span class="p">:</span><span class="no">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="n">width</span><span class="p">,</span> <span class="no">SINGLE_LINE_WIDTH</span><span class="p">)</span><span class="o">]</span><span class="p">;</span>
+<span class="n">line1</span><span class="o">.</span><span class="n">backgroundColor</span><span class="o">=[</span><span class="no">UIColor</span> <span class="ss">colorWithRed</span><span class="p">:</span><span class="mi">0</span><span class="o">.</span><span class="mi">87</span> <span class="ss">green</span><span class="p">:</span><span class="mi">0</span><span class="o">.</span><span class="mi">87</span> <span class="ss">blue</span><span class="p">:</span><span class="mi">0</span><span class="o">.</span><span class="mi">87</span> <span class="ss">alpha</span><span class="p">:</span><span class="mi">1</span><span class="o">]</span><span class="p">;</span>
+<span class="o">[</span><span class="n">cell</span><span class="o">.</span><span class="n">contentView</span> <span class="ss">addSubview</span><span class="p">:</span><span class="n">line1</span><span class="o">]</span><span class="p">;</span></code></pre></div>
+
+<p>参考链接：
+<a href="http://www.cocoachina.com/ios/20150629/12278.html" title="iOS: 如何正确的绘制1像素的线">iOS: 如何正确的绘制1像素的线</a></p>
 
   </article>
 

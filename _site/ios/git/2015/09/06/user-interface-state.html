@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>简介</title>
-  <meta name="description" content="一枚码农，极简主义者
-">
+  <title>Xcode git 忽略user interface state文件</title>
+  <meta name="description" content="  退出xcdoe， 打开终端（Terminal），进入到你的项目目录下  在终端键入  git rm –cached [YourProjectName].xcodeproj/project.xcworkspace/xcuserdata/[YourUsername].xcuserdatad/UserInterfa...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="kikidesign.github.io/about/">
+  <link rel="canonical" href="kikidesign.github.io/ios/git/2015/09/06/user-interface-state.html">
   <link rel="alternate" type="application/rss+xml" title="KikiDesign" href="kikidesign.github.io/feed.xml" />
   <script src="https://rawgit.com/kikidesign/kikidesign.github.io/master/js/jquery.min.js" type="text/javascript"></script>
 </head>
@@ -44,12 +43,29 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">简介</h1>
+    <h1 class="post-title">Xcode git 忽略user interface state文件</h1>
+    <p class="post-meta">Sep 6, 2015</p>
   </header>
 
   <article class="post-content">
-    <p>这里，是我的技术博客。</p>
+    <ol>
+  <li>退出xcdoe， 打开终端（Terminal），进入到你的项目目录下</li>
+  <li>在终端键入  git rm –cached [YourProjectName].xcodeproj/project.xcworkspace/xcuserdata/[YourUsername].xcuserdatad/UserInterfaceState.xcuserstate</li>
+  <li>在终端键入  git commit -m ‘Removed file that shouldn’t be tracked’</li>
+  <li>在你的项目目录下新建.gitignore文件，加入如下几行</li>
+</ol>
 
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">*.</span><span class="n">xcuserstate</span>
+<span class="n">project</span><span class="o">.</span><span class="n">xcworkspace</span>
+<span class="n">xcuserdata</span>
+<span class="no">UserInterfaceState</span><span class="o">.</span><span class="n">xcuserstate</span>
+<span class="n">project</span><span class="o">.</span><span class="n">xcworkspace</span><span class="o">/</span>
+<span class="n">xcuserdata</span><span class="o">/</span>
+<span class="no">UserInterface</span><span class="o">.</span><span class="n">xcuserstate</span></code></pre></div>
+
+<ol>
+  <li>重新打开Xcode commit, push。</li>
+</ol>
 
   </article>
 

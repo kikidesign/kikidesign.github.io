@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>简介</title>
-  <meta name="description" content="一枚码农，极简主义者
-">
+  <title>如何在UITableViewController顶部加一个不动的按钮？</title>
+  <meta name="description" content="方法一：">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="kikidesign.github.io/about/">
+  <link rel="canonical" href="kikidesign.github.io/ios/update/2015/08/07/UITableViewController-Top-Button.html">
   <link rel="alternate" type="application/rss+xml" title="KikiDesign" href="kikidesign.github.io/feed.xml" />
   <script src="https://rawgit.com/kikidesign/kikidesign.github.io/master/js/jquery.min.js" type="text/javascript"></script>
 </head>
@@ -44,11 +43,20 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">简介</h1>
+    <h1 class="post-title">如何在UITableViewController顶部加一个不动的按钮？</h1>
+    <p class="post-meta">Aug 7, 2015</p>
   </header>
 
   <article class="post-content">
-    <p>这里，是我的技术博客。</p>
+    <p>方法一：</p>
+
+<p>1.继承UIViewController然后再去实现UITableView的代理方法
+2.自定义一个UITableView，给它设定坐标
+3.添加那个不动的按钮到view上</p>
+
+<p>方法二：</p>
+
+<p>导航栏加button是可行的；另外tableView有设置头视图的方法：setHeaderView.</p>
 
 
   </article>

@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>简介</title>
-  <meta name="description" content="一枚码农，极简主义者
-">
+  <title>tabBar隐藏与显现 hidesBottomBarWhenPushed</title>
+  <meta name="description" content="这个问题说简单也简单,但是如果不知道,可会让很多人吃苦隐藏UITabBarController的tabBar, 用它的一个属性hidesBottomBarWhenPushed隐藏了，可是当pop返回的时候TabBar不显现了…">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="kikidesign.github.io/about/">
+  <link rel="canonical" href="kikidesign.github.io/ios/tabbar/2015/08/20/tabBar-hidesBottomBarWhenPushed.html">
   <link rel="alternate" type="application/rss+xml" title="KikiDesign" href="kikidesign.github.io/feed.xml" />
   <script src="https://rawgit.com/kikidesign/kikidesign.github.io/master/js/jquery.min.js" type="text/javascript"></script>
 </head>
@@ -44,11 +43,24 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">简介</h1>
+    <h1 class="post-title">tabBar隐藏与显现 hidesBottomBarWhenPushed</h1>
+    <p class="post-meta">Aug 20, 2015</p>
   </header>
 
   <article class="post-content">
-    <p>这里，是我的技术博客。</p>
+    <p>这个问题说简单也简单,但是如果不知道,可会让很多人吃苦
+隐藏UITabBarController的tabBar, 用它的一个属性hidesBottomBarWhenPushed隐藏了，
+可是当pop返回的时候TabBar不显现了…</p>
+
+<p>解决办法：</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="nb">self</span><span class="o">.</span><span class="n">hidesBottomBarWhenPushed</span> <span class="o">=</span> <span class="no">YES</span><span class="p">;</span></code></pre></div>
+
+<p>中的self改成你要push进入的那个viewcontroller</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">viewcontroller</span><span class="o">.</span><span class="n">hidesBottomBarWhenPushed</span> <span class="o">=</span> <span class="no">YES</span><span class="p">;</span></code></pre></div>
+
+<p>这样就可以了。</p>
 
 
   </article>

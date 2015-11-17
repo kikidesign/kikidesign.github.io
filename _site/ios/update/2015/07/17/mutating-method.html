@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>简介</title>
-  <meta name="description" content="一枚码农，极简主义者
-">
+  <title>NSCFArray insertObject:atIndex:]: mutating method sent to immutable object 的解决办法</title>
+  <meta name="description" content="遇到了一个奇怪的问题，记录下：将NSUserDefaults中保存的数据赋给一个可变数组NSMutableArray，NSMutableArray *searchRecordArray = [[NSUserDefaultsstandardUserDefaults] objectForKey:@&quot;Sear...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="kikidesign.github.io/about/">
+  <link rel="canonical" href="kikidesign.github.io/ios/update/2015/07/17/mutating-method.html">
   <link rel="alternate" type="application/rss+xml" title="KikiDesign" href="kikidesign.github.io/feed.xml" />
   <script src="https://rawgit.com/kikidesign/kikidesign.github.io/master/js/jquery.min.js" type="text/javascript"></script>
 </head>
@@ -44,11 +43,22 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">简介</h1>
+    <h1 class="post-title">NSCFArray insertObject:atIndex:]: mutating method sent to immutable object 的解决办法</h1>
+    <p class="post-meta">Jul 17, 2015</p>
   </header>
 
   <article class="post-content">
-    <p>这里，是我的技术博客。</p>
+    <p>遇到了一个奇怪的问题，记录下：
+将NSUserDefaults中保存的数据赋给一个可变数组NSMutableArray，</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">NSMutableArray</span> <span class="o">*</span><span class="n">searchRecordArray</span> <span class="o">=</span> <span class="o">[[</span><span class="no">NSUserDefaultsstandardUserDefaults</span><span class="o">]</span> <span class="ss">objectForKey</span><span class="p">:</span><span class="err">@</span><span class="s2">&quot;SearchRecord&quot;</span><span class="o">]</span><span class="p">;</span></code></pre></div>
+
+<p>但是在对可变数组进行删除操作时却发生了下面的错误：</p>
+<p><font color="red">NSCFArray insertObject:atIndex:]: mutating method sent to immutable object</font></p>
+
+<p>可数组明明是用NSMutableArray声明的呀…解决方法：再声明一个可变数组进行删除:</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">NSMutableArray</span> <span class="o">*</span><span class="n">newsearchRecordArray</span> <span class="o">=</span> <span class="o">[</span><span class="no">NSMutableArray</span> <span class="ss">arrayWithArray</span><span class="p">:</span><span class="n">searchRecordArray</span><span class="o">]</span><span class="p">;</span></code></pre></div>
 
 
   </article>

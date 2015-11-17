@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>简介</title>
-  <meta name="description" content="一枚码农，极简主义者
-">
+  <title>-[__NSCFNumber rangeOfCharacterFromSet:]: unrecognized selector sent to instance</title>
+  <meta name="description" content="这个是类型的不匹配，就是自己还不知情的情况下把NSNumber类型的数值赋给字符串。">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="kikidesign.github.io/about/">
+  <link rel="canonical" href="kikidesign.github.io/ios/__nscfnumber/2015/08/28/__NSCFNumber-rangeOfCharacterFromSet.html">
   <link rel="alternate" type="application/rss+xml" title="KikiDesign" href="kikidesign.github.io/feed.xml" />
   <script src="https://rawgit.com/kikidesign/kikidesign.github.io/master/js/jquery.min.js" type="text/javascript"></script>
 </head>
@@ -44,11 +43,22 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">简介</h1>
+    <h1 class="post-title">-[__NSCFNumber rangeOfCharacterFromSet:]: unrecognized selector sent to instance</h1>
+    <p class="post-meta">Aug 28, 2015</p>
   </header>
 
   <article class="post-content">
-    <p>这里，是我的技术博客。</p>
+    <p>这个是类型的不匹配，就是自己还不知情的情况下把NSNumber类型的数值赋给字符串。</p>
+
+<p>原始代码：</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">myLabel</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="o">[</span><span class="n">bankAccount</span> <span class="ss">valueForKey</span><span class="p">:</span><span class="err">@</span><span class="s2">&quot;account&quot;</span><span class="o">]</span><span class="p">;</span></code></pre></div>
+
+<p>解决办法：</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="n">myLabel</span><span class="o">.</span><span class="n">text</span> <span class="o">=</span> <span class="o">[</span><span class="no">NSString</span> <span class="ss">stringWithFormat</span><span class="p">:</span><span class="err">@</span><span class="s2">&quot;%@&quot;</span><span class="p">,</span><span class="o">[</span><span class="n">bankAccount</span> <span class="ss">valueForKey</span><span class="p">:</span><span class="err">@</span><span class="s2">&quot;account&quot;</span><span class="o">]]</span><span class="p">;</span></code></pre></div>
+
+<p>这个错误，改成这样就可以了。</p>
 
 
   </article>

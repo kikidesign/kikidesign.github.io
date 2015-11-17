@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>简介</title>
-  <meta name="description" content="一枚码农，极简主义者
-">
+  <title>自定义navigation顶部标题</title>
+  <meta name="description" content="UIView *titleView = [[UIView alloc] initWithFrame:CGRectMake(0, 0, width-30, 18)];UILabel *titleText = [[UILabel alloc] initWithFrame: CGRectMake((width-30-7...">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="kikidesign.github.io/about/">
+  <link rel="canonical" href="kikidesign.github.io/ios/update/2015/07/28/Navigation-Top-Custom.html">
   <link rel="alternate" type="application/rss+xml" title="KikiDesign" href="kikidesign.github.io/feed.xml" />
   <script src="https://rawgit.com/kikidesign/kikidesign.github.io/master/js/jquery.min.js" type="text/javascript"></script>
 </head>
@@ -44,11 +43,19 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">简介</h1>
+    <h1 class="post-title">自定义navigation顶部标题</h1>
+    <p class="post-meta">Jul 28, 2015</p>
   </header>
 
   <article class="post-content">
-    <p>这里，是我的技术博客。</p>
+    
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="no">UIView</span> <span class="o">*</span><span class="n">titleView</span> <span class="o">=</span> <span class="o">[[</span><span class="no">UIView</span> <span class="n">alloc</span><span class="o">]</span> <span class="ss">initWithFrame</span><span class="p">:</span><span class="no">CGRectMake</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">width</span><span class="o">-</span><span class="mi">30</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span><span class="o">]</span><span class="p">;</span>
+<span class="no">UILabel</span> <span class="o">*</span><span class="n">titleText</span> <span class="o">=</span> <span class="o">[[</span><span class="no">UILabel</span> <span class="n">alloc</span><span class="o">]</span> <span class="ss">initWithFrame</span><span class="p">:</span> <span class="no">CGRectMake</span><span class="p">((</span><span class="n">width</span><span class="o">-</span><span class="mi">30</span><span class="o">-</span><span class="mi">72</span><span class="p">)</span><span class="o">/</span><span class="mi">2</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">72</span><span class="p">,</span> <span class="mi">18</span><span class="p">)</span><span class="o">]</span><span class="p">;</span>
+<span class="n">titleText</span><span class="o">.</span><span class="n">font</span> <span class="o">=</span> <span class="o">[</span><span class="no">UIFont</span> <span class="ss">systemFontOfSize</span><span class="p">:</span><span class="mi">18</span><span class="o">]</span><span class="p">;</span>
+<span class="o">[</span><span class="n">titleText</span> <span class="ss">setTextColor</span><span class="p">:</span><span class="o">[</span><span class="no">UIColor</span> <span class="n">whiteColor</span><span class="o">]]</span><span class="p">;</span>
+<span class="o">[</span><span class="n">titleText</span> <span class="ss">setText</span><span class="p">:</span><span class="err">@</span><span class="s2">&quot;积分商城&quot;</span><span class="o">]</span><span class="p">;</span>
+<span class="o">[</span><span class="n">titleView</span> <span class="ss">addSubview</span><span class="p">:</span><span class="n">titleText</span><span class="o">]</span><span class="p">;</span>
+<span class="nb">self</span><span class="o">.</span><span class="n">navigationItem</span><span class="o">.</span><span class="n">titleView</span> <span class="o">=</span> <span class="n">titleView</span><span class="p">;</span></code></pre></div>
 
 
   </article>

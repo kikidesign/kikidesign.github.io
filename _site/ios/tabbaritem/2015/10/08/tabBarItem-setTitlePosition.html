@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>简介</title>
-  <meta name="description" content="一枚码农，极简主义者
-">
+  <title>调整tabBarItem的文本位置</title>
+  <meta name="description" content="调整tabBarItem的文本位置：">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="kikidesign.github.io/about/">
+  <link rel="canonical" href="kikidesign.github.io/ios/tabbaritem/2015/10/08/tabBarItem-setTitlePosition.html">
   <link rel="alternate" type="application/rss+xml" title="KikiDesign" href="kikidesign.github.io/feed.xml" />
   <script src="https://rawgit.com/kikidesign/kikidesign.github.io/master/js/jquery.min.js" type="text/javascript"></script>
 </head>
@@ -44,11 +43,16 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">简介</h1>
+    <h1 class="post-title">调整tabBarItem的文本位置</h1>
+    <p class="post-meta">Oct 8, 2015</p>
   </header>
 
   <article class="post-content">
-    <p>这里，是我的技术博客。</p>
+    <p>调整tabBarItem的文本位置：</p>
+
+<div class="highlight"><pre><code class="language-ruby" data-lang="ruby"><span class="o">[</span><span class="nb">self</span><span class="o">.</span><span class="n">navigationController</span><span class="o">.</span><span class="n">tabBarItem</span> <span class="ss">setTitlePositionAdjustment</span><span class="p">:</span><span class="no">UIOffsetMake</span><span class="p">(</span><span class="no">CGFloat</span> <span class="n">horizontal</span><span class="p">,</span> <span class="no">CGFloat</span> <span class="n">vertical</span><span class="p">)</span><span class="o">]</span><span class="p">;</span></code></pre></div>
+
+<p>第一个为水平位置，第二个为垂直位置</p>
 
 
   </article>

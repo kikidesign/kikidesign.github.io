@@ -6,12 +6,11 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>简介</title>
-  <meta name="description" content="一枚码农，极简主义者
-">
+  <title>PBXcp error - No such file or directory</title>
+  <meta name="description" content="算是Xcode比较常见的一个编译错误了，原因往往是添加或删除美术资源的时候出错。虽然是小问题，但出现的频率很高。">
 
   <link rel="stylesheet" href="/css/main.css">
-  <link rel="canonical" href="kikidesign.github.io/about/">
+  <link rel="canonical" href="kikidesign.github.io/ios/update/2015/08/07/PBXcp-error.html">
   <link rel="alternate" type="application/rss+xml" title="KikiDesign" href="kikidesign.github.io/feed.xml" />
   <script src="https://rawgit.com/kikidesign/kikidesign.github.io/master/js/jquery.min.js" type="text/javascript"></script>
 </head>
@@ -44,11 +43,24 @@
         <div class="post">
 
   <header class="post-header">
-    <h1 class="post-title">简介</h1>
+    <h1 class="post-title">PBXcp error - No such file or directory</h1>
+    <p class="post-meta">Aug 7, 2015</p>
   </header>
 
   <article class="post-content">
-    <p>这里，是我的技术博客。</p>
+    <p>算是Xcode比较常见的一个编译错误了，原因往往是添加或删除美术资源的时候出错。虽然是小问题，但出现的频率很高。</p>
+
+<p>解决方法（可以依次尝试，总有一种能最终解决问题）：
+方法1.退出Xcode，然后从finder里面进入~/Library/Developer/Xcode/DerivedData 删掉里面所有的内容，然后重启Xcode试试看</p>
+
+<p>方法2.上面的操作也可以直接在Xcode的organizer中完成，在organizer里面切换到projects，然后delete掉derived data
+在target设置中删掉Prefix Header的值，重启Xcode试试看
+最后恢复Prefix Header的设置</p>
+
+<p>方法3：
+还是在Xcode里面
+项目-targets-build phases，
+然后从copy bundle resources里面删掉红色的错误资源文件</p>
 
 
   </article>
