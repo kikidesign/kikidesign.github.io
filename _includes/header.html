@@ -12,7 +12,7 @@
     </nav>
     <div id="search">
         <form action="/search" method="get" class="input-group">
-            <input type="text" id="search-query" class="form-control search-query" name="q" placeholder="Search" autocomplete="off">
+            <input type="text" id="search-query" class="form-control search-query" name="q" placeholder="搜索..." autocomplete="off">
             <span class="input-group-btn">
                 <button class="btn btn-default" type="button">
                     <span class="glyphicon glyphicon-search"></span>
@@ -20,5 +20,10 @@
             </span>
         </form>
     </div>
+    <section id="search-results" style="display: none;">
+      <p>Search Results</p>
+      <div class="entries">
+      </div>
+    </section>
   </div>
 </header>
