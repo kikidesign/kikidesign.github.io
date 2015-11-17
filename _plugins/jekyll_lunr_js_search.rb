@@ -83,7 +83,7 @@ module Jekyll
         end
         
         FileUtils.mkdir_p(File.join(site.dest, @js_dir))
-        filename = File.join(@js_dir, 'search.json')
+        filename = File.join(site, site.dest, "/", 'search.json')
         
         total = {
           "docs" => @docs,
