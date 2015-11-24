@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "tableview-pull-down"
+title:  "tableview的下拉刷新"
 date:   2015-11-24 13:30:00
 categories: iOS git
 ---
