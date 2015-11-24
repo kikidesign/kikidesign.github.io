@@ -30,18 +30,21 @@ categories: iOS git
             currentPage=currentPage+1;
             NSString *newUrl= [NSString stringWithFormat:@"https://ms.aicheplus.com/v1/items/xiche/%@/%@/%ld",lbs_dic[@"lat"],lbs_dic[@"lng"],(long)currentPage];
             manager = [AFHTTPRequestOperationManager manager];
-//            NSLog(@"MaintainArr %@",MaintainArr);
             [manager GET:newUrl parameters:nil success:^(AFHTTPRequestOperation *operation, id responseObject) {
                 NSArray *newArr=responseObject[@"info"];
-//                NSLog(@"第%ld页数组 %@",(long)currentPage,newArr);
-                NSMutableArray *arrM = [[NSMutableArray alloc] init];
-                [arrM addObjectsFromArray:MaintainArr];
-                [arrM addObjectsFromArray:newArr];
-                MaintainArr = arrM;
-                if (MaintainArr.count>0) {
-                    //添加完数据就重新加载数据
-                    sectionNum=MaintainArr.count;
-                    [self.tableView reloadData];
+                if (newArr.count>0) {
+                    NSLog(@"第%ld页数组 %@",(long)currentPage,newArr);
+                    NSMutableArray *arrM = [[NSMutableArray alloc] init];
+                    [arrM addObjectsFromArray:MaintainArr];
+                    [arrM addObjectsFromArray:newArr];
+                    MaintainArr = arrM;
+                    if (MaintainArr.count>0) {
+                        //添加完数据就重新加载数据
+                        sectionNum=MaintainArr.count;
+                        [self.tableView reloadData];
+                    }
+                }else{
+                    currentPage=currentPage-1;
                 }
             } failure:^(AFHTTPRequestOperation *operation, NSError *error) {
                 NSLog(@"Error: %@", error);
@@ -54,5 +57,5 @@ categories: iOS git
         self.tableView.tableFooterView = nil;
         self.tableView.tableHeaderView = nil;
     }
-}  
+}
 {% endhighlight %}
