@@ -127,12 +127,20 @@ blockquote {
  */
 pre,
 code {
-    display:block;
+    display:inline-block;
     color:#fff;
     font-size: 15px;
     border: 1px solid $grey-color-light;
     border-radius: 3px;
     background-color: #272822;
+}
+
+pre,
+code,
+span{
+    display:block;
+    word-wrap:break-word;
+    overflow-wrap:break-word; 
 }
 
 code {
