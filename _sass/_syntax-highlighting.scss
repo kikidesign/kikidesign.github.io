@@ -4,8 +4,8 @@
 .highlight {
     background: #fff;
     //设置强行换行
-    word-wrap:break-word;
-    overflow-wrap:break-word; 
+    word-wrap:break-all;
+    overflow-wrap:break-all; 
     @extend %vertical-rhythm;
 
     .c     { color: #998; font-style: italic } // Comment
