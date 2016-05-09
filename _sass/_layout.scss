@@ -54,6 +54,13 @@
     filter: progid:DXImageTransform.Microsoft.gradient(enabled=false);
 }
 
+.btn-sm, {
+    padding: 5px 10px;
+    font-size: 12px;
+    line-height: 1.5;
+    border-radius: 3px;
+}
+
 .btn-large {
     padding: 11px 19px;
     font-size: 17.5px;
