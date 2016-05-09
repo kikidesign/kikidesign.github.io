@@ -3,8 +3,9 @@
  */
 .highlight {
     background: #fff;
-    overflow-wrap: break-word;  //设置强行换行
-    word-break: break-word;
+    //设置强行换行
+    word-wrap:break-word;
+    overflow-wrap:break-word; 
     @extend %vertical-rhythm;
 
     .c     { color: #998; font-style: italic } // Comment
