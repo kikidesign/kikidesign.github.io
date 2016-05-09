@@ -210,7 +210,9 @@ post-c
 .post-content {
     display: block;
     margin-bottom: $spacing-unit;
-
+    word-break: break-word;
+    overflow-wrap: break-word;
+    
     h2 {
         font-size: 32px;
 
