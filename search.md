@@ -16,11 +16,9 @@ alert(escape(myresult));
 var json_url="http://www.tapirgo.com/api/1/search.json?token=57305e9714ad66564ac85250&query="+escape(myresult);
 alert(json_url);
 $.getJSON(json_url, function(data){
-	alert(data);
-  // $.each(data.items, function(i,item){
-  //   $("<img/>").attr("src", item.media.m).appendTo("#images");
-  //   if ( i == 3 ) return false;
-  // });
+  $.each(data.items, function(i,item){
+    alert(data.items);
+  });
 });
 
 uilable
