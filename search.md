@@ -12,7 +12,7 @@ permalink: /search/
 
 <div id="search">
   <form action="/search" method="get">
-    <input type="text" id="search-query" name="q" placeholder="请输入搜索内容..." autocomplete="off">
+    <input type="text" id="search-query" name="q" placeholder="请输入搜索内容12334..." autocomplete="off">
   </form>
 </div>
 
