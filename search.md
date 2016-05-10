@@ -3,11 +3,9 @@ layout: page
 permalink: /search/
 ---
 
-<div class="">
-  <h1 class="page-heading">搜索结果</h1>
-  <ul class="post-list">
-  </ul>
-</div>
+<h1 class="page-heading">搜索结果</h1>
+<ul class="post-list">
+</ul>
 <script src="/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 var myresult = getUrlParam('value');
