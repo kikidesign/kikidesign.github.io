@@ -5,10 +5,8 @@ permalink: /search/
 
 <section id="search-results" style="display: block;">
   <p>搜索结果</p>
-  <div class="entries">
-  </div>
+  <div class="entries"></div>
 </section>
-
 <script src="/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 var myresult = getUrlParam('value');
@@ -17,7 +15,7 @@ var json_url="http://www.tapirgo.com/api/1/search.json?token=57305e9714ad66564ac
 alert(json_url);
 $.getJSON(json_url, function(data){
   $.each(data.items, function(i,item){
-    alert(data.items);
+    alert("i: "+data.items);
   });
 });
 $('#results').val(unescape(myresult));
