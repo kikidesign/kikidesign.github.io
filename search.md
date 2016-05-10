@@ -13,7 +13,7 @@ permalink: /search/
 <input value='' type="text" id="value" />
 <script type="text/javascript">
 var test = getUrlParam('value');
-$('#value').val(test);
+// $('#value').val(test);
 function getUrlParam(name)
 {
 var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
