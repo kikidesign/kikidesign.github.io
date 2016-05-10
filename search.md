@@ -19,8 +19,8 @@ $.getJSON(json_url, function(data){
 	if(data[item]){
 	  alert(data[item].title);
 	  alert($("#info"));
-	  $("#info").append("<p>data[item].title</p>"); 
-	  $("#info").append("<a>data[item].link</a>"); 
+	  $("#info").append("<p>" + data[item].title + "</p>"); 
+	  $("#info").append("<a>" + data[item].link + "</a>"); 
 	   // $("#info").append(
 	   //      "<div>" +     + "</div><hr/>" +
 	   //      "<div>" + data[item].link  + "</div><hr/>");
