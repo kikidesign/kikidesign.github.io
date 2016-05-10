@@ -11,12 +11,20 @@
       </a>
     </nav> -->
     <div id="search">
-        <form class="bs-example bs-example-form form-inline text-right" align="right" role="form">
+<!--         <form class="bs-example bs-example-form form-inline text-right" align="right" role="form">
         	<div class="input-group">
         		<input id="value" type="text" class="form-control input-medium search-query" placeholder="请输入需要搜索的内容">
         		<a href="javascript:sendurl()" class="btn btn-primary btn-sm" data-toggle="button">搜索</a>
       		</div>
-      	</form>
+      	</form> -->
+        <div class="input-group custom-search-form"  align="right" >
+          <input type="text" class="form-control" placeholder="请输入需要搜索的内容...">
+            <span class="input-group-btn">
+            <button class="btn btn-default" type="button">
+                <i class="fa fa-search"></i>
+            </button>
+          </span>
+        </div>
     </div>
     <section id="search-results" style="display: none;">
       <p>Search Results</p>
