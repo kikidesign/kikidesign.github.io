@@ -18,13 +18,20 @@ $.getJSON(json_url, function(data){
   for(var item in data){
 	if(data[item]){
 	  count++;
-	   $("#info").append(
-	        "<div>" + data[item].title    + "</div>" +
-	        "<div>" + data[item].link  + "</div><hr/>");
-	   });
+	  alert(data[item].title);
+	   // $("#info").append(
+	   //      "<div>" + data[item].title    + "</div>" +
+	   //      "<div>" + data[item].link  + "</div><hr/>");
+	   // });
 	};
   };
   // alert(count);
+  // alert(data[0]);
+  // alert(data[0].title);
+  // alert(data[0].link);
+  // $.each(data, function(i, item) {
+
+  // });
 });
 
 $('#results').val(unescape(myresult));
