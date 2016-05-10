@@ -5,21 +5,29 @@ permalink: /search/
 
 <section id="search-results" style="display: block;">
   <p>搜索结果</p>
-  <div class="entries"></div>
+  <div id="info"></div>
 </section>
 <script src="/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 var myresult = getUrlParam('value');
 var json_url="http://www.tapirgo.com/api/1/search.json?token=57305e9714ad66564ac85250&query="+escape(myresult);
 $.getJSON(json_url, function(data){
- // var dataObj=eval("("+data+")");//转换为json对象   
- alert(data.length);//输出root的子对象数量  
+  // var dataObj=eval("("+data+")");//转换为json对象   
+  alert(data.length);//输出root的子对象数量  
   // alert(data[0]);
   // alert(data[0].title);
   // alert(data[0].link);
-  $.each(data, function(i,item){
-    alert("i: "+data.items);
+  $.each(function(data.length) {
+	alert(i);
+    alert("i: "+data[i].title);
   });
+  // $.each(data, function(i, item) {
+  //   $("#info").append(
+  //       "<div>" + item.id + "</div>" + 
+  //       "<div>" + item.nickname    + "</div>" +
+  //       "<div>" + item.content + "</div><hr/>");
+  //   });
+  // });
 });
 
 $('#results').val(unescape(myresult));
