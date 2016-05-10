@@ -15,22 +15,16 @@ $.getJSON(json_url, function(data){
   // var dataObj=eval("("+data+")");//转换为json对象   
   alert(data.length);//输出root的子对象数量  
   var count = 0;
-  for(var a in data){
-	if(data[a]){
+  for(var item in data){
+	if(data[item]){
 	  count++;
+	   $("#info").append(
+	        "<div>" + data[item].title    + "</div>" +
+	        "<div>" + data[item].link  + "</div><hr/>");
+	   });
 	};
   };
-  alert(count);
-  // alert(data[0]);
-  // alert(data[0].title);
-  // alert(data[0].link);
-  // $.each(data, function(i, item) {
-  //   $("#info").append(
-  //       "<div>" + item.id + "</div>" + 
-  //       "<div>" + item.nickname    + "</div>" +
-  //       "<div>" + item.content + "</div><hr/>");
-  //   });
-  // });
+  // alert(count);
 });
 
 $('#results').val(unescape(myresult));
