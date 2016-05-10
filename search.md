@@ -12,8 +12,8 @@ permalink: /search/
 <script src="/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 var myresult = getUrlParam('value');
+alert("http://www.tapirgo.com/api/1/search.json?token=57305e9714ad66564ac85250&query="+myresult);
 $.getJSON("http://www.tapirgo.com/api/1/search.json?token=57305e9714ad66564ac85250&query="+myresult, function(data){
-	alert(data);
   // $.each(data.items, function(i,item){
   //   $("<img/>").attr("src", item.media.m).appendTo("#images");
   //   if ( i == 3 ) return false;
