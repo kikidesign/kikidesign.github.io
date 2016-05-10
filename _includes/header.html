@@ -27,6 +27,7 @@
 </header>
 <script type="text/javascript">
 function sendurl(){
-location.href='http://www.kikidesign.cn/search?value=' + encodeURIComponent($('#value').val());
+  var keyword=escape($('#value').val());
+  location.href='http://www.kikidesign.cn/search?value=' + keyword.replace('%u'/g, /\\u);
 }
 </script>
