@@ -17,7 +17,7 @@ $.getJSON(json_url, function(data){
   var count = 0;
   for(var item in data){
 	if(data[item]){
-	  $("#info").append("<a href=" + data[item].link + ">" + data[item].title + "</a><hr/>"); 
+	  $("#info").append("<a href=" + 'http://'+ data[item].link + ">" + data[item].title + "</a><hr/>"); 
 	};
   };
 });
