@@ -18,10 +18,10 @@ $.getJSON(json_url, function(data){
   for(var item in data){
 	if(data[item]){
 	  alert(data[item].title);
-	   $("#info").append(
-	        "<div>" + data[item].title    + "</div><hr/>" +
-	        "<div>" + data[item].link  + "</div><hr/>");
-	   });
+	   // $("#info").append(
+	   //      "<div>" + data[item].title    + "</div><hr/>" +
+	   //      "<div>" + data[item].link  + "</div><hr/>");
+	   // });
 	};
   };
 });
