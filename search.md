@@ -16,7 +16,7 @@ $.getJSON(json_url, function(data){
   alert(data.length);//输出root的子对象数量  
   var count = 0;
   for(var item in data){
-  	alert(data[item]);
+  	alert(item);
 	if(data[item]){
 	  count++;
 	  alert(item.title);
