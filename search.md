@@ -17,7 +17,7 @@ $.getJSON(json_url, function(data){
 	  //输出data的子对象数量  
 	  for(var item in data){
 		if(data[item]){
-		  $(".post-list").append("<li><h2><a href=" + 'http://'+ data[item].link + ">" + data[item].title + "</a></h2></li>"); 
+		  $(".post-list").append("<li><h2><a href=" + 'http://'+ data[item].link + ">" + data[item].title + "</a></h2><span class='post-meta'>"+ data[item].published_on + "</span></li>"); 
 		  // $("#post-list").append("<li><h2><a href=" + 'http://'+ data[item].link + ">" + data[item].title + "</a></h2><span class='post-meta'>"+ data[item].published_on + "</span></li>"); 
 		};
 	  };
