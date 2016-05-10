@@ -20,8 +20,6 @@ $.getJSON(json_url, function(data){
     alert(data.items);
   });
 });
-
-uilable
 $('#results').val(unescape(myresult));
 function getUrlParam(name)
 {
