@@ -16,13 +16,12 @@ $.getJSON(json_url, function(data){
   alert(data.length);//输出root的子对象数量  
   var count = 0;
   for(var item in data){
-  	alert(item);
 	if(data[item]){
 	  alert(data[item].title);
-	   // $("#info").append(
-	   //      "<div>" + data[item].title    + "</div>" +
-	   //      "<div>" + data[item].link  + "</div><hr/>");
-	   // });
+	   $("#info").append(
+	        "<div>" + data[item].title    + "</div><hr/>" +
+	        "<div>" + data[item].link  + "</div><hr/>");
+	   });
 	};
   };
   // alert(data[0]);
