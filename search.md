@@ -4,7 +4,7 @@ permalink: /search/
 ---
 
 <section id="search-results" style="display: block;">
-  <p>搜索结果</p>
+  <div>搜索结果</div>
   <div id="info"></div>
 </section>
 <script src="/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
@@ -19,8 +19,7 @@ $.getJSON(json_url, function(data){
 	if(data[item]){
 	  alert(data[item].title);
 	  alert($("#info"));
-	  $("#info").append("<p>" + data[item].title + "</p>"); 
-	  $("#info").append("<a>" + data[item].link + "</a>"); 
+	  $("#info").append("<a href=" + data[item].link + ">" + data[item].title + "</a>"); 
 	   // $("#info").append(
 	   //      "<div>" +     + "</div><hr/>" +
 	   //      "<div>" + data[item].link  + "</div><hr/>");
