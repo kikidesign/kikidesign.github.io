@@ -3,7 +3,6 @@ layout: page
 permalink: /search/
 ---
 
-<h1 class="post-title">搜索结果</h1>
 <ul class="post-list">
 </ul>
 <script src="/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
@@ -20,7 +19,7 @@ $.getJSON(json_url, function(data){
 		};
 	  };
 	}else{
-		$("#post-list").append("<div>" + "对不起，未能找到搜索内容~" + "</div><br/>")
+		$("#post-list").append("<li><h2>" + "对不起，未能找到搜索内容~" + "</h2></li><br/>")
 	}
 });
 
