@@ -12,8 +12,8 @@ permalink: /search/
 var myresult = getUrlParam('value');
 var json_url="http://www.tapirgo.com/api/1/search.json?token=57305e9714ad66564ac85250&query="+escape(myresult);
 $.getJSON(json_url, function(data){
- var dataObj=eval("("+data+")");//转换为json对象   
- alert(dataObj.root.length);//输出root的子对象数量  
+ // var dataObj=eval("("+data+")");//转换为json对象   
+ alert(data.length);//输出root的子对象数量  
   // alert(data[0]);
   // alert(data[0].title);
   // alert(data[0].link);
