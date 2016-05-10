@@ -27,10 +27,11 @@
 </header>
 <script type="text/javascript">
 function sendurl(){
-  var keyword=escape($('#value').val());
+  var keyword=encodeURIComponent($('#value').val());
+  escape
   alert(keyword);
-  keyword=keyword.replace(/%/g, "\");
-  alert(keyword);
-  location.href='http://www.kikidesign.cn/search?value=' + keyword;
+  // keyword=keyword.replace(/%/g, "\");
+  // alert(keyword);
+  // location.href='http://www.kikidesign.cn/search?value=' + keyword;
 }
 </script>
