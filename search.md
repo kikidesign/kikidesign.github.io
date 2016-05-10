@@ -19,9 +19,10 @@ $.getJSON(json_url, function(data){
 	if(data[item]){
 	  alert(data[item].title);
 	  alert($("#info"));
-	  $("#info").append("<p>姚明退役了...</p>"); 
+	  $("#info").append("<p>data[item].title</p>"); 
+	  $("#info").append("<a>data[item].link</a>"); 
 	   // $("#info").append(
-	   //      "<div>" + data[item].title    + "</div><hr/>" +
+	   //      "<div>" +     + "</div><hr/>" +
 	   //      "<div>" + data[item].link  + "</div><hr/>");
 	   // });
 	};
