@@ -12,12 +12,14 @@ permalink: /search/
 var myresult = getUrlParam('value');
 var json_url="http://www.tapirgo.com/api/1/search.json?token=57305e9714ad66564ac85250&query="+escape(myresult);
 $.getJSON(json_url, function(data){
-  // var dataObj=eval("("+data+")");//转换为json对象   
-  alert(data.length);//输出root的子对象数量  
+  //alert(data.length);
+  //输出data的子对象数量  
   var count = 0;
   for(var item in data){
 	if(data[item]){
 	  alert(data[item].title);
+	  alert($("#info"));
+	  $("#info").append("<p>姚明退役了...</p>"); 
 	   // $("#info").append(
 	   //      "<div>" + data[item].title    + "</div><hr/>" +
 	   //      "<div>" + data[item].link  + "</div><hr/>");
