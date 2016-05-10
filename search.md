@@ -12,14 +12,16 @@ permalink: /search/
 var myresult = getUrlParam('value');
 var json_url="http://www.tapirgo.com/api/1/search.json?token=57305e9714ad66564ac85250&query="+escape(myresult);
 $.getJSON(json_url, function(data){
-  //alert(data.length);
-  //输出data的子对象数量  
-  var count = 0;
-  for(var item in data){
-	if(data[item]){
-	  $("#info").append("<a href=" + 'http://'+ data[item].link + ">" + data[item].title + "</a><hr/>"); 
-	};
-  };
+	if(data.length>0){
+	  //输出data的子对象数量  
+	  for(var item in data){
+		if(data[item]){
+		  $("#info").append("<a href=" + 'http://'+ data[item].link + ">" + data[item].title + "</a><br/>"); 
+		};
+	  };
+	}else{
+		$("#info").append("<div>" + "对不起，未能找到搜索内容~" + "</div><br/>")
+	}
 });
 
 $('#results').val(unescape(myresult));
