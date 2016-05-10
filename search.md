@@ -24,12 +24,6 @@ $.getJSON(json_url, function(data){
 	   });
 	};
   };
-  // alert(data[0]);
-  // alert(data[0].title);
-  // alert(data[0].link);
-  // $.each(data, function(i, item) {
-
-  // });
 });
 
 $('#results').val(unescape(myresult));
