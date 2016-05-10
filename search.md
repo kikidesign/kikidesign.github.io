@@ -3,12 +3,17 @@ layout: page
 permalink: /search/
 ---
 <script src="/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="/js/lunr.min.js" type="text/javascript" charset="utf-8"></script>
-<script src="/js/mustache.js" type="text/javascript" charset="utf-8"></script>
-<script src="/js/date.format.js" type="text/javascript" charset="utf-8"></script>
-<script src="/js/URI.js" type="text/javascript" charset="utf-8"></script>
-<script src="/js/jquery.lunr.search.js" type="text/javascript" charset="utf-8"></script>
-<script src="/js/search.min.js" type="text/javascript" charset="utf-8"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery-latest.js"></script>
+<input value='' type="text" id="value" />
+<script type="text/javascript">
+var test = getUrlParam('value');$('#value').val(test);
+function getUrlParam(name)
+{
+var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //¹¹ÔìÒ»¸öº¬ÓÐÄ¿±ê²ÎÊýµÄÕýÔò±í´ïÊ½¶ÔÏó
+var r = window.location.search.substr(1).match(reg);  //Æ¥ÅäÄ¿±ê²ÎÊý
+if (r!=null) return unescape(r[2]); return null; //·µ»Ø²ÎÊýÖµ
+} 
+</script>
 
 <div id="search">
   <form action="/search" method="get">
