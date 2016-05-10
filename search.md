@@ -3,7 +3,7 @@ layout: page
 permalink: /search/
 ---
 
-<div class="home">
+<div class="">
   <h1 class="page-heading">搜索结果</h1>
   <ul class="post-list">
   </ul>
