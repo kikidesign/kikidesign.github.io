@@ -12,7 +12,8 @@ permalink: /search/
 <script src="/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 var myresult = getUrlParam('value');
-var json_url="http://www.tapirgo.com/api/1/search.json?token=57305e9714ad66564ac85250&query=" + escape(myresult);
+alert(escape(myresult));
+var json_url="http://www.tapirgo.com/api/1/search.json?token=57305e9714ad66564ac85250&query="+escape(myresult);
 alert(json_url);
 $.getJSON(json_url, function(data){
 	alert(data);
