@@ -28,6 +28,9 @@
 <script type="text/javascript">
 function sendurl(){
   var keyword=escape($('#value').val());
-  location.href='http://www.kikidesign.cn/search?value=' + keyword.replace(/%/g, '\');
+  alert(keyword);
+  keyword=keyword.replace(/%/g, '\');
+  alert(keyword);
+  location.href='http://www.kikidesign.cn/search?value=' + keyword;
 }
 </script>
