@@ -10,9 +10,10 @@ permalink: /search/
 </section>
 
 <script src="/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
-<input value='' type="text" id="value" />
+<input value='' type="text" id="results" />
 <script type="text/javascript">
-var test = getUrlParam('value');$('#value').val(unescape(test));
+var test = getUrlParam('value');
+$('#results').val(unescape(test));
 function getUrlParam(name)
 {
 var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
