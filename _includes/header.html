@@ -29,7 +29,7 @@
 function sendurl(){
   var keyword=encodeURIComponent($('#value').val());
   alert(keyword);
-  keyword=keyword.replace(/\%/g, "\\");
+  keyword=keyword.replace(/%/g, "\\");
   alert(keyword);
   location.href='http://www.kikidesign.cn/search?value=' + keyword;
 }
