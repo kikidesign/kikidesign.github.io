@@ -3,10 +3,11 @@ layout: page
 permalink: /search/
 ---
 
-<section id="search-results" style="display: block;">
-  <div>搜索结果</div>
-  <div id="info"></div>
-</section>
+<div class="home">
+  <h1 class="page-heading">搜索结果</h1>
+  <ul class="post-list">
+  </ul>
+</div>
 <script src="/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
 <script type="text/javascript">
 var myresult = getUrlParam('value');
@@ -16,11 +17,18 @@ $.getJSON(json_url, function(data){
 	  //输出data的子对象数量  
 	  for(var item in data){
 		if(data[item]){
-		  $("#info").append("<a href=" + 'http://'+ data[item].link + ">" + data[item].title + "</a><br/>"); 
+		  $("#post-list").append("
+        	<li>
+        		<h2>
+          			<a href=" + 'http://'+ data[item].link + ">" + data[item].title + "</a>
+        		</h2>
+        		<span class='post-meta'>"+ data[item].published_on + "</span>
+        	</li>"
+		  	); 
 		};
 	  };
 	}else{
-		$("#info").append("<div>" + "对不起，未能找到搜索内容~" + "</div><br/>")
+		$("#post-list").append("<div>" + "对不起，未能找到搜索内容~" + "</div><br/>")
 	}
 });
 
