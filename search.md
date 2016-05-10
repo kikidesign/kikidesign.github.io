@@ -3,7 +3,7 @@ layout: page
 permalink: /search/
 ---
 
-<h1 class="page-heading">搜索结果</h1>
+<h1 class="post-title">搜索结果</h1>
 <ul class="post-list">
 </ul>
 <script src="/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
