@@ -1,13 +1,18 @@
-<script src="/jquery-tapir.min.js"></script>
+<section id="search-results" style="display: block;">
+  <p>搜索结果</p>
+  <div class="entries">
+  </div>
+</section>
+
+<script src="/js/jquery.min.js" type="text/javascript" charset="utf-8"></script>
+<input value='' type="text" id="value" />
 <script type="text/javascript">
-jQuery(function() {
-  $('#search_results').tapir({'token': '57305e9714ad66564ac85250'});
-});
+var test = getUrlParam('value');
+$('#value').val(test);
+function getUrlParam(name)
+{
+var reg = new RegExp("(^|&)"+ name +"=([^&]*)(&|$)");
+var r = window.location.search.substr(1).match(reg);
+if (r!=null) return unescape(r[2]); return null;
+} 
 </script>
-
-<form id="site_search" method="get" action="search.html">
-  <label for="search_box">Search</label><input type="text" id="search_box" name="query">
-  <input type="submit" value="search">
-</form>
-
-<ul id="search_results"></ul>
