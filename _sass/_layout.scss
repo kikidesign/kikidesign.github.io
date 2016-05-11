@@ -339,6 +339,11 @@
 }
 
 .post-link:hover {
+    color: #08c;
+    text-decoration:none;
+}
+
+.post-link:visited {
     color: #333;
     text-decoration:none;
 }
