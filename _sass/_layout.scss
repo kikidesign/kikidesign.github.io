@@ -213,7 +213,9 @@
     border-top: 1px solid $grey-color-light;
     padding: $spacing-unit 0;
 }
-
+.footer_email{
+    float:left;
+}
 .footer-heading {
     font-size: 18px;
     margin-bottom: $spacing-unit / 2;
