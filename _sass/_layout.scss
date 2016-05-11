@@ -307,6 +307,18 @@
     margin-top: 13px;
 }
 
+.small_link{
+    color: #083;
+    text-decoration:none;
+}
+.small_link:hover{
+    color: #083;
+    text-decoration:underline;
+}
+.small_link:visited{
+    color: #333;
+    text-decoration:none;
+}
 .search-link{
     color: #333;
     text-decoration:none;
