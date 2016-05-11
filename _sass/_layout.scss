@@ -126,15 +126,24 @@
 }
 
 .site-title {
+    color:#333;
+    line-height:56px;
     font-size: 26px;
     letter-spacing: -1px;
     margin-bottom: 0;
     float: left;
     &,
+    &:hover {
+        color:#333;
+        text-decoration: none;
+    }
+    &,
     &:visited {
-        color: $grey-color-dark;
+        color:#333;
     }
 }
+
+
 
 .site-nav {
     float: right;
