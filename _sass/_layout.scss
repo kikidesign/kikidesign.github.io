@@ -46,7 +46,7 @@
 }
 
 #search{
-
+    line-height:56px;
 }
 
 .input-medium {
@@ -126,6 +126,7 @@
 }
 
 .site-title {
+    text-decoration: none;
     color:#333;
     line-height:56px;
     font-size: 26px;
@@ -140,6 +141,7 @@
     &,
     &:visited {
         color:#333;
+        text-decoration: none;
     }
 }
 
