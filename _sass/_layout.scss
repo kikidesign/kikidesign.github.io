@@ -45,10 +45,6 @@
     vertical-align: middle;
 }
 
-#search{
-
-}
-
 .input-medium {
     width: 150px;
 }
@@ -305,12 +301,11 @@
     color: #bbb;
 }
 
-.search-link {
-    color: #08c;
-    text-decoration:none;
+#search{
+    line-height:56px;
 }
 
-.search-link:hover {
+.search-link .search-link:hover .search-link:visited {
     color: #333;
     text-decoration:none;
 }
