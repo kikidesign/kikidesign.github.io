@@ -305,7 +305,15 @@
     margin-top: 13px;
 }
 
-.search-link .search-link:hover .search-link:visited {
+.search-link{
+    color: #333;
+    text-decoration:none;
+}
+.search-link:hover{
+    color: #333;
+    text-decoration:none;
+}
+.search-link:visited{
     color: #333;
     text-decoration:none;
 }
