@@ -38,4 +38,4 @@ git commit -m
 git push -u origin master   
 //还记的这个别名吗 origin 这个别名就是你用第一种方法首次向Github提交代码时你用的别名
 {% endhighlight %}
-以上就是Github的入门基本操作了,接下来的请进一步举一反三。
+以上就是Github的入门基本操作了。
