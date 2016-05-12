@@ -5,7 +5,8 @@ date:   2016-05-12 15:10:00
 categories: Github 
 ---
 
-1.首次使用，意思就是这个文件夹中的代码你还没有向Github提交过代码
+0.首先去Github上注册账号,建库；
+1.首次提交，意思就是这个文件夹中的代码你还没有向Github提交过代码
 打开终端terminal
 {% highlight ruby %}
 cd /home/test(假如 test就是你的用户名)/githubtest(这是个文件夹,你可以提前先建立好,这个文件夹也可以是你要提交代码的项目文件夹)
@@ -22,4 +23,4 @@ git add .       //或者添加具体的文件 git add 你要添加的文件(test
 git commit -m   //"说明"
 git push -u origin master   //还记的这个别名吗 origin 这个别名就是你用第一种方法首次向Github提交代码时你用的别名
 {% endhighlight %}
-
+以上就是Github的入门基本操作了
