@@ -31,7 +31,7 @@ git push -u origin master
 {% highlight ruby %}
 cd /home/test   
 //(假如 test就是你的用户名)/githubtest(这个文件夹是你要提交代码的项目文件夹,前提是你已经用过第一种方法了)
-git add .       
+git add . 
 //或者添加具体的文件git add你要添加的文件(test/test/test.txt)
 git commit -m   
 //"说明"
