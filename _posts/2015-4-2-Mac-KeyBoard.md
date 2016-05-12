@@ -5,14 +5,14 @@ date:   2015-4-2 10:30:00
 categories: iOS Mac
 ---
 
-⌘——Command ()
+⌘——Command ()，也叫花键
 
 ⌃——Control
 
-⌥——Option (alt)
+⌥——Option (alt键)
 
 ⇧——Shift
 
-⇪——Caps Lock
+⇪——Caps Lock (大小写键)
 
 fn——功能键就是fn
