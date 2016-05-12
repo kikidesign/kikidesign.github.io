@@ -16,5 +16,3 @@ categories: iOS Mac
 ⇪——Caps Lock
 
 fn——功能键就是fn
-
-![Mac-KeyBoard](https://raw.githubusercontent.com/kikidesign/kikidesign.github.io/master/_image/Mac-KeyBoard.png)
