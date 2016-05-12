@@ -4,7 +4,7 @@ title:  "Github极简教程"
 date:   2016-05-12 15:10:00
 categories: Github 
 ---
-
+ 
 0.首先去Github上注册账号,建库；
 1.首次提交，意思就是这个文件夹中的代码你还没有向Github提交过代码
 打开终端terminal
