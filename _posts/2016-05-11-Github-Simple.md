@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Github极简教程"
-date:   2016-05-12 15:10:00
+date:   2016-05-11 15:10:00
 categories: Github 
 ---
  
