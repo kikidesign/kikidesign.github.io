@@ -1,7 +1,7 @@
 ---
 layout: post
 title:  "Github极简教程"
-date:   2016-05-11 15:10:00
+date:   2016-05-12 05:05:00
 categories: Github 
 ---
 
@@ -10,7 +10,8 @@ categories: Github
 1.首次提交，意思就是这个文件夹中的代码你还没有向Github提交过代码，打开终端terminal：
 
 {% highlight ruby %}
-cd /home/test(假如 test就是你的用户名)/githubtest(这是个文件夹,你可以提前先建立好,这个文件夹也可以是你要提交代码的项目文件夹)
+cd /home/test
+//(假如 test就是你的用户名)/githubtest(这是个文件夹,你可以提前先建立好,这个文件夹也可以是你要提交代码的项目文件夹)
 git init 
 //这是初始化在这个文件夹中建立一个空库
 git add  
@@ -36,4 +37,4 @@ git commit -m
 git push -u origin master   
 //还记的这个别名吗 origin 这个别名就是你用第一种方法首次向Github提交代码时你用的别名
 {% endhighlight %}
-以上就是Github的入门基本操作了
+以上就是Github的入门基本操作了,接下来的请进一步举一反三。
