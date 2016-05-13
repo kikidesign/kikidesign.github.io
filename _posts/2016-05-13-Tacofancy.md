@@ -96,6 +96,6 @@ the_great_taco_hunt是一家致力于记录伟大的塔科位置，受了Tacofan
 
 ----------------
 
-更多详情请参阅原文 [原文链接][tacofancy]
+[原文链接][tacofancy]
 
 [tacofancy]:      https://github.com/OpenMindClub/tacofancy/blob/master/README.md
