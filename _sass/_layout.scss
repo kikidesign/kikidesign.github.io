@@ -9,6 +9,11 @@
 .markdown-body table th {
     font-weight: bold;
 }
+.markdown-body img {
+    max-width: 100%;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+}
 
 .btn-default {
     color: #333;
