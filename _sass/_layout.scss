@@ -9,10 +9,24 @@
 .markdown-body table th {
     font-weight: bold;
 }
+
+.markdown-body table td {
+    border: 1px solid #ddd;
+    padding: 6px 13px;
+}
+
 .markdown-body img {
     max-width: 100%;
     -moz-box-sizing: border-box;
     box-sizing: border-box;
+}
+
+article img {
+    max-width: 100%;
+    padding: 2px;
+    margin-top: 8px;
+    background: #fafafa;
+    border: 1px solid #eee;
 }
 
 .btn-default {
