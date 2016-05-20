@@ -181,6 +181,7 @@ GitHub库里，分支完成类似的目标。
 
 点击图片查看大图
 
+<div class="markdown-body">
 <table>
   <thead>
     <tr>
@@ -211,6 +212,7 @@ GitHub库里，分支完成类似的目标。
     </tr>
   </tbody>
 </table>
+</div>
 
 
 
