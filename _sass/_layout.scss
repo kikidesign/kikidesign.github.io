@@ -27,6 +27,13 @@ article.full .content-body {
     font-size: 18px;
 }
 
+article img.emoji {
+    padding: 0;
+    margin: 0;
+    background: transparent;
+    border: none;
+}
+
 article img {
     max-width: 100%;
     padding: 2px;
