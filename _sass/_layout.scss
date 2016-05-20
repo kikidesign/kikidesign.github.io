@@ -21,6 +21,12 @@
     box-sizing: border-box;
 }
 
+article.full .content-body {
+    width: 650px;
+    padding-bottom: 30px;
+    font-size: 18px;
+}
+
 article img {
     max-width: 100%;
     padding: 2px;
