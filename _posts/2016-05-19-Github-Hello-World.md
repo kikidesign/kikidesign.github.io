@@ -177,18 +177,46 @@ GitHub库里，分支完成类似的目标。
 
 您还可以在您自己的仓库打开拉请求和自己的库合并。这是在开展大项目之前，学习GitHub工作流的好方法。
 
+
 ### 为更改README打开一个拉请求
 
 点击图片查看大图
 
-|步骤|截屏|
-|点击<span class="octicon octicon-git-pull-request"></span>拉入请求选项卡，然后从拉请求页面，点击绿色的"新的拉请求"按钮。|![pr-tab](https://raw.githubusercontent.com/kikidesign/kikidesign.github.io/master/_image/pr-tab.gif)|
-|选择您所做的分支readme-edits，与主分支（原件）进行比较。|![pick-branch](https://raw.githubusercontent.com/kikidesign/kikidesign.github.io/master/_image/pick-branch.png)|
-|查看在比较页面上的文件更改差异，在你要提交的时候确保他们正确。|![diff](https://raw.githubusercontent.com/kikidesign/kikidesign.github.io/master/_image/diff.png)|
-|当您对这些需要提交的更改都感到满意，请单击那个大大的绿色的"创建拉请求"按钮。|![create-pr](https://raw.githubusercontent.com/kikidesign/kikidesign.github.io/master/_image/create-pr.png)|
-|给您拉请求写个标题，再写一个关于更改的简短说明。|![pr-form](https://raw.githubusercontent.com/kikidesign/kikidesign.github.io/master/_image/pr-form.png)|
+
+<table>
+  <thead>
+    <tr>
+      <th>步骤</th>
+      <th>截屏</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>点击<span class="octicon octicon-git-pull-request"></span>拉入请求选项卡，然后从拉请求页面，点击绿色的"新的拉请求"按钮。</td>
+      <td><img src="pr-tab.gif" alt="pr-tab"></td>
+    </tr>
+    <tr>
+      <td>选择您所做的分支readme-edits，与主分支（原件）进行比较。</td>
+      <td><a href="pick-branch.png"><img src="pick-branch.png" alt="branch"></a></td>
+    </tr>
+    <tr>
+      <td>查看在比较页面上的文件更改差异，在你要提交的时候确保他们正确。</td>
+      <td><a href="diff.png"><img src="diff.png" alt="diff"></a></td>
+    </tr>
+    <tr>
+      <td>当您对这些需要提交的更改都感到满意，请单击那个大大的绿色的"创建拉请求"按钮。</td>
+      <td><a href="create-pr.png"><img src="create-pr.png" alt="create-pull"></a></td>
+    </tr>
+    <tr>
+      <td>给您拉请求写个标题，再写一个关于更改的简短说明。</td>
+      <td><img src="pr-form.png" alt="pr-form"></td>
+    </tr>
+  </tbody>
+</table>
+
 
 当您完成了这些消息后，单击"创建拉要求"按钮！
+
 
 提示：您可以使用的[emoji表情符号]和[拖放图片、GIF]到提交和拉请求。
 
@@ -196,7 +224,10 @@ GitHub库里，分支完成类似的目标。
 
 ## 步骤5.合并你的拉请求
 
+
 在这最后一步里，是时候把你的更改从你的readme-edits分支合并到主分支里了。
+
+
 
 1. 点击绿色的"合并拉请求"按钮将更改合并到主分支里。
 
@@ -223,6 +254,7 @@ GitHub库里，分支完成类似的目标。
 * 打开和合并一个拉请求
 
 
+
 看看你的GitHub个人资料，你会看到你的[新贡献方块图]（一种用方块颜色展示代码贡献频率的图表）！
 
 
@@ -230,6 +262,7 @@ GitHub库里，分支完成类似的目标。
 
 
 提示：检查我们的其他[指南]和[YouTube频道]以了解更多的GitHub入门指南。
+
 
 
 最后更新于2016年4月7日
