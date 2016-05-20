@@ -133,6 +133,26 @@ GitHub库里，分支完成类似的目标。
 
 ----------------
 
+## 步骤3.制作并提交更改
+
+好样的！现在，你已经在你自己的readme-edits分支的代码视图上了，它是主分支的拷贝。让我们做一些修改。
+
+在GitHub上，保存更改被称为提交。每次提交都有一个关联的提交信息，这是一个关于为什么作出了这次特定变更的说明。提交信息能够让其他的参与者捕获您的历史更改记录，以便理解你做了什么，以及为什么(这样做)。
+
+### 制作并提交修改
+
+1. 点击README.md文件。
+2. 单击文件视图编辑的右上角的铅笔图标<span class="octicon octicon-pencil"></span>。
+3. 在编辑者一栏中，简单介绍下自己。
+4. 撰写一条提交信息描述你的更改。
+5. 点击提交更改按钮。
+
+![commit](https://raw.githubusercontent.com/kikidesign/kikidesign.github.io/master/_image/commit.png)
+
+这些更改将只在你自己的readme-edits分支上的README文件上生效，所以现在这个分支所包含内容便会和主分支上的不同。
+
+----------------
+
 [原文链接][GitHub-Hello-World]
 
 [GitHub-Hello-World]: https://guides.github.com/activities/hello-world/
