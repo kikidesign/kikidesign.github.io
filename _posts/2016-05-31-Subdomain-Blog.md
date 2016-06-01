@@ -9,13 +9,13 @@ categories: Blog
 
 <ol>  
 
-<li>去域名服务商添加子域名CNAME：subname.kikidesign.cn</li>  
+<li>找一个喜欢的模板Fork(当然也可以自己新建仓库)，改名为subname(建议和子域名统一比较方便)</li>  
 
-<li>Fork或者新建仓库，改名为subname(也可以改为其他名字，和子域名统一比较方便)</li>  
+<li>在Fork到自己的类库里新建Github分支，必须命名为"gh-pages"</li>  
 
-<li>新建Github分支，必须命名为"gh-pages"</li>  
+<li>将"gh-pages"设置为默认分支</li>  
 
-<li>在仓库设置中设定该分支为默认分支</li>  
+<li>去域名服务商添加子域名CNAME：subname.kikidesign.cn</li> 
 
 <li>在你的Blog文件夹根目录添加CNAME文件(里面也要写上subname.kikidesign.cn)</li>  
 
