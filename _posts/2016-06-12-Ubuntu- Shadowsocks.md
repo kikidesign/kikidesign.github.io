@@ -48,9 +48,10 @@ server, server_port, password 需要根据自己的实际情况修改。
 配置文件编辑完成后，就可以部署运行了：
 {% highlight ruby %}
 ssserver -c /etc/shadowsocks.json -d start
-{% endhighlight %}
-
-## 后台长期启动shadowsockts
+{% endhighlight %}  
+  
+  
+## 后台长期启动shadowsockts:
 {% highlight ruby %}
 nohup ssserver -c /usr/local/lib/python2.7/dist-packages/shadowsocks/config.json > log &
 {% endhighlight %}
