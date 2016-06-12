@@ -12,7 +12,7 @@ categories: Blog
 
 {% highlight ruby %}
 python --version 
-Python 2.7.8
+Python 2.7.6
 {% endhighlight %}  
 
 如果低于2.6的，请先升级Python。
@@ -24,7 +24,8 @@ apt-get update
 apt-get install python-pip
 pip install shadowsocks
 {% endhighlight %}
-(pip是python下的方便安装的工具，类似apt-get)
+(pip是python下的方便安装的工具，类似apt-get)  
+
 执行完毕且没有报错的话，shadowsocks 就安装成功了。
 
 ## 配置部署：
@@ -54,7 +55,7 @@ ssserver -c /etc/shadowsocks.json -d start
 nohup ssserver -c /usr/local/lib/python2.7/dist-packages/shadowsocks/config.json > log &
 {% endhighlight %}
 查看后台启动任务：
-{% highlight ruby %} 
+{% highlight ruby %}
 jobs
 {% endhighlight %}
 关掉 fg %n
@@ -80,13 +81,17 @@ sudo vim /etc/rc.local
 {% endhighlight %}
 
 ## 常用命令
+{% highlight ruby %}
 启动：/etc/init.d/shadowsocks start
 停止：/etc/init.d/shadowsocks stop
 重启：/etc/init.d/shadowsocks restart
 状态：/etc/init.d/shadowsocks status
+{% endhighlight %}
 
 ## 升级 Shadowsock 命令
+{% highlight ruby %}
 pip install –upgrade shadowsocks
+{% endhighlight %}
 
 
 
