@@ -13,7 +13,8 @@ categories: Blog
 {% highlight ruby %}
 python --version 
 Python 2.7.8
-{% endhighlight %}
+{% endhighlight %}  
+
 如果低于2.6的，请先升级Python。
 
 ## 安装：
@@ -46,6 +47,7 @@ server, server_port, password 需要根据自己的实际情况修改。
 配置文件编辑完成后，就可以部署运行了：
 {% highlight ruby %}
 ssserver -c /etc/shadowsocks.json -d start
+{% endhighlight %}
 
 ## 后台长期启动shadowsockts
 {% highlight ruby %}
