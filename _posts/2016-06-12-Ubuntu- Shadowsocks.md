@@ -1,0 +1,83 @@
+---
+layout: post
+title:  "Ubuntu 搭建 Shadowsocks"
+date:   2016-06-12 00:00:01
+categories: Blog
+---
+
+## 条件：
+1.要有一台墙外的VPS(我的是DigitalOcean，系统是Ubuntu)。
+2.shadowsocks 要求 Python 2.6 最好 2.7。
+python --version 
+Python 2.7.8
+如果低于2.6的，请先升级Python。
+
+## 安装：
+依次执行下面3条命令：
+apt-get update
+apt-get install python-pip
+pip install shadowsocks
+(pip是python下的方便安装的工具，类似apt-get)
+执行完毕且没有报错的话，shadowsocks 就安装成功了。
+
+## 配置部署：
+写一个配置文件保存为etc/shadowsocks.json，文件内容如下：
+{
+    "server":"my_server_ip”,(注意：ip外面要打””)
+    "server_port":8388,
+    "local_address": "127.0.0.1",
+    "local_port":1080,
+    "password":"mypassword",(注意：密码外面也要打””)
+    "timeout":300,
+    "method":"aes-256-cfb",
+    "fast_open": false
+}
+server, server_port, password 需要根据自己的实际情况修改。
+
+## 运行：
+配置文件编辑完成后，就可以部署运行了：
+ssserver -c /etc/shadowsocks.json -d start
+
+## 后台长期启动shadowsockts
+nohup ssserver -c /usr/local/lib/python2.7/dist-packages/shadowsocks/config.json > log &
+查看后台启动任务： jobs
+关掉 fg %n
+
+## 开机自运行：
+当然，我们可不希望每次重启服务器都手动启动 SS, 因此我们要把这条命令放到这个文件下：/etc/rc.d/rc.local，这样以后就能开机自动运行了。
+
+sudo vim /etc/rc.local
+加上一行：
+/usr/local/bin/ssserver -c /usr/local/lib/python2.7/dist-packages/shadowsocks/config.json
+
+## 配置客户端：
+{
+"server":"50.116.34.99",
+"server_port":8388,
+"local_port":10808,
+"password":"bgt56yhn",
+"timeout":600,
+"method":null
+}
+
+## 常用命令
+启动：/etc/init.d/shadowsocks start
+停止：/etc/init.d/shadowsocks stop
+重启：/etc/init.d/shadowsocks restart
+状态：/etc/init.d/shadowsocks status
+
+## 升级 Shadowsock 命令
+pip install –upgrade shadowsocks
+
+
+
+
+
+
+
+
+
+
+
+
+
