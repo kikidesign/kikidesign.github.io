@@ -1,0 +1,25 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<!-- //解决中文乱码 -->
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+</head>
+<body>
+<div></div>
+<script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.data-set-0.10.1/dist/data-set.min.js"></script>
+<script>
+	var now = new Date();
+	var date = now.getFullYear() + "-" +((now.getMonth()+1)<10?"0":"")+(now.getMonth()+1)+"-"+(now.getDate()<10?"0":"")+now.getDate();
+	var week=new Date().getDay();
+	var weekday;
+	if(week==0) weekday="星期日";
+	if(week==1) weekday="星期一";
+	if(week==2) weekday="星期二";
+	if(week==3) weekday="星期三";
+	if(week==4) weekday="星期四";
+	if(week==5) weekday="星期五";
+	if(week==6) weekday="星期六";
+	alert('今天是'+date+','+weekday);
+</script>
+</body>
+</html>

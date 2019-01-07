@@ -1,75 +1,73 @@
----
-layout: default
----
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,height=device-height">
+    <title>åˆ†ç»„æŸ±çŠ¶å›¾</title>
+    <style>::-webkit-scrollbar{display:none;}html,body{overflow:hidden;height:100%;margin:0;}</style>
+</head>
+<body>
 <div id="mountNode"></div>
 <script>/*Fixing iframe window.innerHeight 0 issue in Safari*/document.body.clientHeight;</script>
 <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.g2-3.4.1/dist/g2.min.js"></script>
 <script src="https://gw.alipayobjects.com/os/antv/pkg/_antv.data-set-0.10.1/dist/data-set.min.js"></script>
 <script>
 var data = [{
-  "name": "London",
-  "ÔÂ·İ": "Jan.",
-  "ÔÂ¾ù½µÓêÁ¿": 18.9
+  "name": "å…¨éƒ¨å’¨è¯¢",
+  "å‘¨": "æ˜ŸæœŸä¸€",
+  "æœˆå‡é™é›¨é‡": 18.9
 }, {
-  "name": "London",
-  "ÔÂ·İ": "Feb.",
-  "ÔÂ¾ù½µÓêÁ¿": 28.8
+  "name": "å…¨éƒ¨å’¨è¯¢",
+  "å‘¨": "æ˜ŸæœŸäºŒ",
+  "æœˆå‡é™é›¨é‡": 28.8
 }, {
-  "name": "London",
-  "ÔÂ·İ": "Mar.",
-  "ÔÂ¾ù½µÓêÁ¿": 39.3
+  "name": "å…¨éƒ¨å’¨è¯¢",
+  "å‘¨": "æ˜ŸæœŸä¸‰",
+  "æœˆå‡é™é›¨é‡": 39.3
 }, {
-  "name": "London",
-  "ÔÂ·İ": "Apr.",
-  "ÔÂ¾ù½µÓêÁ¿": 81.4
+  "name": "å…¨éƒ¨å’¨è¯¢",
+  "å‘¨": "æ˜ŸæœŸå››",
+  "æœˆå‡é™é›¨é‡": 81.4
 }, {
-  "name": "London",
-  "ÔÂ·İ": "May",
-  "ÔÂ¾ù½µÓêÁ¿": 47
+  "name": "å…¨éƒ¨å’¨è¯¢",
+  "å‘¨": "æ˜ŸæœŸäº”",
+  "æœˆå‡é™é›¨é‡": 47
 }, {
-  "name": "London",
-  "ÔÂ·İ": "Jun.",
-  "ÔÂ¾ù½µÓêÁ¿": 20.3
+  "name": "å…¨éƒ¨å’¨è¯¢",
+  "å‘¨": "æ˜ŸæœŸå…­",
+  "æœˆå‡é™é›¨é‡": 20.3
 }, {
-  "name": "London",
-  "ÔÂ·İ": "Jul.",
-  "ÔÂ¾ù½µÓêÁ¿": 24
+  "name": "å…¨éƒ¨å’¨è¯¢",
+  "å‘¨": "æ˜ŸæœŸæ—¥",
+  "æœˆå‡é™é›¨é‡": 24
 }, {
-  "name": "London",
-  "ÔÂ·İ": "Aug.",
-  "ÔÂ¾ù½µÓêÁ¿": 35.6
+  "name": "æœ‰æ•ˆå’¨è¯¢",
+  "å‘¨": "æ˜ŸæœŸä¸€",
+  "æœˆå‡é™é›¨é‡": 12.4
 }, {
-  "name": "Berlin",
-  "ÔÂ·İ": "Jan.",
-  "ÔÂ¾ù½µÓêÁ¿": 12.4
+  "name": "æœ‰æ•ˆå’¨è¯¢",
+  "å‘¨": "æ˜ŸæœŸäºŒ",
+  "æœˆå‡é™é›¨é‡": 23.2
 }, {
-  "name": "Berlin",
-  "ÔÂ·İ": "Feb.",
-  "ÔÂ¾ù½µÓêÁ¿": 23.2
+  "name": "æœ‰æ•ˆå’¨è¯¢",
+  "å‘¨": "æ˜ŸæœŸä¸‰",
+  "æœˆå‡é™é›¨é‡": 34.5
 }, {
-  "name": "Berlin",
-  "ÔÂ·İ": "Mar.",
-  "ÔÂ¾ù½µÓêÁ¿": 34.5
+  "name": "æœ‰æ•ˆå’¨è¯¢",
+  "å‘¨": "æ˜ŸæœŸå››",
+  "æœˆå‡é™é›¨é‡": 99.7
 }, {
-  "name": "Berlin",
-  "ÔÂ·İ": "Apr.",
-  "ÔÂ¾ù½µÓêÁ¿": 99.7
+  "name": "æœ‰æ•ˆå’¨è¯¢",
+  "å‘¨": "æ˜ŸæœŸäº”",
+  "æœˆå‡é™é›¨é‡": 52.6
 }, {
-  "name": "Berlin",
-  "ÔÂ·İ": "May",
-  "ÔÂ¾ù½µÓêÁ¿": 52.6
+  "name": "æœ‰æ•ˆå’¨è¯¢",
+  "å‘¨": "æ˜ŸæœŸå…­",
+  "æœˆå‡é™é›¨é‡": 35.5
 }, {
-  "name": "Berlin",
-  "ÔÂ·İ": "Jun.",
-  "ÔÂ¾ù½µÓêÁ¿": 35.5
-}, {
-  "name": "Berlin",
-  "ÔÂ·İ": "Jul.",
-  "ÔÂ¾ù½µÓêÁ¿": 37.4
-}, {
-  "name": "Berlin",
-  "ÔÂ·İ": "Aug.",
-  "ÔÂ¾ù½µÓêÁ¿": 42.4
+  "name": "æœ‰æ•ˆå’¨è¯¢",
+  "å‘¨": "æ˜ŸæœŸæ—¥",
+  "æœˆå‡é™é›¨é‡": 37.4
 }];
 var chart = new G2.Chart({
   container: 'mountNode',
@@ -77,10 +75,11 @@ var chart = new G2.Chart({
   height: window.innerHeight
 });
 chart.source(data);
-chart.interval().position('ÔÂ·İ*ÔÂ¾ù½µÓêÁ¿').color('name').adjust([{
+chart.interval().position('å‘¨*æœˆå‡é™é›¨é‡').color('name').adjust([{
   type: 'dodge',
   marginRatio: 1 / 32
 }]);
 chart.render();
 </script>
-
+</body>
+</html>
