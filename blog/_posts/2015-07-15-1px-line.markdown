@@ -1,0 +1,22 @@
+---
+layout: post
+title:  "iOS: 绘制1像素的线"
+date:   2015-07-15 17:13:20
+categories: iOS update
+---
+
+首先定义一个画1像素线的一个宏，道理么看到代码想想就应该明白了:
+{% highlight ruby %}
+#define SINGLE_LINE_WIDTH           (1 / [UIScreen mainScreen].scale)
+#define SINGLE_LINE_ADJUST_OFFSET   ((1 / [UIScreen mainScreen].scale) / 2)
+{% endhighlight %}
+
+使用方法：
+{% highlight ruby %}
+UIView *line1 = [[UIView alloc] initWithFrame:CGRectMake(0, 10, width, SINGLE_LINE_WIDTH)];
+line1.backgroundColor=[UIColor colorWithRed:0.87 green:0.87 blue:0.87 alpha:1];
+[cell.contentView addSubview:line1];
+{% endhighlight %}
+
+参考链接：
+[iOS: 如何正确的绘制1像素的线](http://www.cocoachina.com/ios/20150629/12278.html "iOS: 如何正确的绘制1像素的线")

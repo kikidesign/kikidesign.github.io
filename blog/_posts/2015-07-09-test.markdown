@@ -1,0 +1,23 @@
+---
+layout: post
+title:  编写第一篇Jekyll博客
+date:   2015-07-09 17:26:20
+categories: blog update
+---
+
+你会发现这个帖子在你的`_posts`目录里。继续编辑它，重新构建网站，看看你的变化。你可以使用许多不同的方式重建网站，但最常用的方式是运行`jekyll serve`，它启动一个Web服务器，并且在一个文件被更新时自动更新你的网站。
+
+当你想增加新的帖子时，只需在`_posts`目录下按照`YYYY-MM-DD-name-of-post.ext`的格式添加文件，包括必要的版权页等。看一看这篇帖子的源文件，以了解它是如何工作的。
+
+Jekyll还对代码片段提供了强大的支持:
+
+{% highlight ruby %}
+def print_hi(name)
+  puts "Hi, #{name}"
+end
+print_hi('Tom')
+#=> prints 'Hi, Tom' to STDOUT.
+{% endhighlight %}
+ 
+
+查看 <a href="http://jekyll.bootcss.com/" target="_blank">Jekyll中文官网</a> 的帮助文件以获取更多信息，了解如何发挥 Jekyll 的最大功效。所有错误/特征都会归档在 <a href="https://github.com/jekyll/jekyll" target="_blank">Jekyll-Github</a> 。如果你有问题，你可以在 <a href="http://github.com/jekyll/jekyll-help" target="_blank">Jekyll-Help</a> 上提问。
