@@ -927,6 +927,12 @@ h3.widget-title-modal {
     position: absolute;
     width: 100%;
 }
+.a-box{
+    display:block;
+    padding-bottom: 10px;
+    padding-right: 20px;
+    float: left;
+}
 
 
 
