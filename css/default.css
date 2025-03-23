@@ -933,7 +933,13 @@ h3.widget-title-modal {
     padding-right: 20px; 
     float: left;
 }
-
+#parentContainer {
+  display: grid;
+}
+#childContainer {
+  margin: auto;
+  padding: 20px;
+}
 
 
 
