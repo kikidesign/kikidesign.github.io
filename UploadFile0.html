@@ -1,0 +1,83 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>文件上传</title>
+</head>
+<body>
+<h1>文件上传</h1>
+<hr>
+<!-- <input type="file" name="files" id="folderInput" webkitdirectory multiple> -->
+<input type="file" id="folderInput">
+<button onclick="uploadFiles()">上传</button>
+
+<script>
+    function uploadFiles() {
+        //根据id获取元素
+        const fileInput = document.getElementById('folderInput');
+        const files = fileInput.files;
+        var file = fileInput.files[0];
+        var fileSize = file.size/1024/1024;
+        if (fileSize > 15) {
+            alert("上传附件不能大于15M");
+        }else{
+            // API密钥和dataset_id
+            const apiKey = 'dataset-mPM7JLZyhVLxGXEUypxSIK6q'; // API密钥
+            const datasetId = '34892664-db8e-4a56-9aad-40ad991f34fa'; // 数据集ID
+            // 创建一个FormData对象
+            var formData = new FormData();
+            // 添加其他文本数据（如JSON字符串）
+            const indexingData = {
+                //索引方式
+                indexing_technique: 'high_quality',
+                //处理规则
+                process_rule: {
+                    rules: {
+                        pre_processing_rules: [
+                            {id: 'remove_extra_spaces', enabled: true},
+                            {id: 'remove_urls_emails', enabled: true}
+                        ],
+                        segmentation: {
+                            separator: '###',
+                            max_tokens: 500
+                        }
+                    },
+                    mode: 'custom'
+                }
+            };
+            formData.append('data', JSON.stringify(indexingData)); // JSON字符串
+            formData.append('type', 'text/plain'); 
+
+            //多个文件异步
+            if (files.length > 0) {
+                // 使用FormData发送文件到服务器
+                for (let i = 0; i < files.length; i++) {
+                    //获取文件本身的名称                
+                    var name = files[i].name
+                    //使用前清除旧的文件
+                    formData.delete('file')
+                    formData.append('file', files[i]);
+                    for (let [key, value] of formData.entries()) { console.log(key, value); }
+                    // fetch
+                    // 发送POST请求
+                    fetch(`https://api.dify.ai/v1/datasets/${datasetId}/document/create_by_file`, {
+                        method: 'POST',
+                        headers: {
+                            'Authorization': 'Bearer dataset-mPM7JLZyhVLxGXEUypxSIK6q',
+                            // 'Content-Type': 'application/json',
+                        },
+                        body: formData
+                    }).then(response => {
+                        if(response.status == 200){
+                            alert("文档上传成功!!")
+                        }
+                    }).catch(error => {
+                        alert("上传出错")
+                    });  
+                }
+            }
+        }
+    }
+</script>
+</body>
+</html>

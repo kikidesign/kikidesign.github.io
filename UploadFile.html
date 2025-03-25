@@ -108,34 +108,75 @@
 			fileInput.addEventListener('change', function () {
 				var file = fileInput.files[0];
 				// var fileUrl = URL.createObjectURL(file);
-				var filePath = fileInput.value; // 获得上传文件的绝对路径
+				// var filePath = fileInput.value; // 获得上传文件的绝对路径 
 			 	var fileSize = file.size/1024/1024;
+			 	// 创建一个FormData对象
+			    var formData = new FormData();
+			 	alert(fileSize)
 		        if (fileSize > 15) {
 		            alert("上传附件不能大于15M");
 		        }else{
-					const formData = new FormData();
-				    formData.append('file', file);
-				    const xhr = new XMLHttpRequest();
-				    xhr.open('POST', url, true);
-				    xhr.setRequestHeader('Authorization','Bearer dataset-mPM7JLZyhVLxGXEUypxSIK6q');
-					// xhr.setRequestHeader('Content-Type','application/json');
-				    xhr.upload.addEventListener('progress', function(event) {
-				    	alert("正在上传请稍后...");
-				        if (event.lengthComputable) {
-				            const percentComplete = (event.loaded / event.total) * 100;
-				            console.log(`Upload progress: ${percentComplete}%`);
-				        }
-				    });
-				    xhr.onload = function() {
-				        if (xhr.status === 200) {
-				            console.log('Upload successful:', xhr.responseText);
-				            alert("上传成功！");
-				        } else {
-				            console.error('Upload failed:', xhr.responseText);
-				            alert("上传失败...原因："+xhr.responseText);
-				        }
-				    };
-				    xhr.send(formData);
+				    // formData.append('file', file);
+				 //    const xhr = new XMLHttpRequest();
+				 //    xhr.open('POST', url, true);
+				 //    xhr.setRequestHeader('Authorization','Bearer dataset-mPM7JLZyhVLxGXEUypxSIK6q');
+				 //    xhr.setRequestHeader('Content-Type','multipart/form-data');
+					// // xhr.setRequestHeader('Content-Type','application/json');
+					// alert("正在上传请稍后...");
+				 //    xhr.upload.addEventListener('progress', function(event) {
+				 //        if (event.lengthComputable) {
+				 //            const percentComplete = (event.loaded / event.total) * 100;
+				 //            console.log(`Upload progress: ${percentComplete}%`);
+				 //        }
+				 //    });
+				 //    xhr.onload = function() {
+				 //        if (xhr.status === 200) {
+				 //            console.log('Upload successful:', xhr.responseText);
+				 //            alert("上传成功！");
+				 //        } else {
+				 //            alert("上传失败...原因："+xhr.responseText);
+				 //        }
+				 //    };
+				 //    xhr.send(formData);
+					// --form 'file=@C:/Users/LEO/Desktop/1.txt'
+			        const indexingData = {
+			            //索引方式
+			            indexing_technique: 'high_quality',
+			            //处理规则
+			            process_rule: {
+			                rules: {
+			                    pre_processing_rules: [
+			                        {id: 'remove_extra_spaces', enabled: true},
+			                        {id: 'remove_urls_emails', enabled: true}
+			                    ],
+			                    segmentation: {
+			                        separator: '###',
+			                        max_tokens: 500
+			                    }
+			                },
+			                mode: 'custom'
+			            }
+			        };
+			        formData.append('data', indexingData); 
+			        // formData.append('type', 'text/plain');
+			        //'@C:/Users/LEO/Desktop/1.txt'
+			        formData.append('file',file, '1.txt'); 
+			        alert(formData)
+					// 发送POST请求
+	                fetch(url, {
+	                    method: 'POST',
+	                    headers: {
+	                        'Authorization': 'Bearer dataset-mPM7JLZyhVLxGXEUypxSIK6q'
+	                    },
+	                    body: formData
+	                }).then(response => {
+	                	console.log(response.responseText)
+	                	alert(response.responseText)
+	                }).then(data => {
+	                	console.log(data)
+	                }).catch(error => {
+	                    alert("上传出错")
+	                }); 
 		        }
 			});
 		</script>

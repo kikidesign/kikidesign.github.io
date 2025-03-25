@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>知识库已上传文档列表</title>
+    <title>删除已上传文档</title>
     <script src="js/jquery-3.3.1.min.js"></script>
 </head>
 <body>
@@ -13,24 +13,23 @@ $(document).ready(function() {
 	//get请求
     var xmlhttp = new XMLHttpRequest();
     // get方法带参数是将参数写在url里面传过去给后端
-    xmlhttp.open("GET", "https://api.dify.ai/v1/datasets/34892664-db8e-4a56-9aad-40ad991f34fa/documents", true);
+    xmlhttp.open("GET", "https://api.dify.ai/v1/datasets/34892664-db8e-4a56-9aad-40ad991f34fa/documents/e38cf84d-cb95-4f44-ae9a-528c7995673c", true);
     xmlhttp.setRequestHeader("Authorization","Bearer dataset-mPM7JLZyhVLxGXEUypxSIK6q");
-    xmlhttp.send();
     // xmlhttp.readyState == 4 且 status == 200为请求成功返回的状态
     xmlhttp.onreadystatechange = function(){
         if(xmlhttp.readyState == 4 && xmlhttp.status == 200){
             var json = $.parseJSON(xmlhttp.responseText);
             console.log(xmlhttp.responseText)
-            // alert(xmlhttp.responseText)
-            var dic = json.data
-            let div = document.createElement('div');
-            div.innerHTML = "<b>当前的知识库文档列表：<b>";
-            document.body.appendChild(div);
-            for(var i=0; i<dic.length; i++){
-                let newDiv = document.createElement('div');
-                newDiv.innerHTML = dic[i].name;
-                document.body.appendChild(newDiv);
-            }
+            alert(xmlhttp.responseText)
+            // var dic = json.data
+            // let div = document.createElement('div');
+            // div.innerHTML = "<b>当前的知识库文档列表：<b>";
+            // document.body.appendChild(div);
+            // for(var i=0; i<dic.length; i++){
+            //     let newDiv = document.createElement('div');
+            //     newDiv.innerHTML = dic[i].name;
+            //     document.body.appendChild(newDiv);
+            // }
         }
     }
 });
