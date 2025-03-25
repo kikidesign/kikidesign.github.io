@@ -3,7 +3,7 @@
 	<head>
 		<meta charset="utf-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge">
-		<title>AI智能问答 - 知识库</title>		
+		<title>上传文档到知识库</title>		
 		<meta name="description" content="Hurst – Furniture Store eCommerce HTML Template is a clean and elegant design – suitable for selling flower, cookery, accessories, fashion, high fashion, accessories, digital, kids, watches, jewelries, shoes, kids, furniture, sports….. It has a fully responsive width adjusts automatically to any screen size or resolution.">
 		<meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -50,15 +50,24 @@
 			<div class="area-404 pt-40 pb-40">
 				<div class="container">	
 					<div class="row">
-						<div id="parentContainer" class="col-lg-12">
-							<div id="childContainer">
-                                <a href="KnowledgeBase.html"><button data-text="立即问答" type="submit" class="button-one submit-btn-1">智能问答</button><br></a>
-                            </div>
-                            <div id="childContainer">
-                                <a href="DocList.html"><button data-text="进入知识库" type="submit" class="button-one submit-btn-1">知识库文档列表</button><br></a>
-                            </div>
-                            <div id="childContainer">
-                                <a href="UploadFile.html"><button data-text="立即上传" type="submit" class="button-one submit-btn-1">上传文档</button><br></a>
+						<div class="col-lg-12">
+							<ul >
+								<li>
+									<p> • 长文本内容（TXT、Markdown、DOCX、HTML、JSON、PDF）</p>
+								</li>
+								<li>
+									<p> • 结构化数据（CSV、Excel 等）</p>
+								</li>
+								<li>
+									<p> • 单文档的上传大小限制为 15MB </p>
+								</li>
+							</ul>
+						</div>						
+					</div>
+					<div class="row mt20">
+						<div class="col-lg-12">
+							<div>
+                                <input type="file" id="fileInput">
                             </div>
 						</div>						
 					</div>
@@ -93,6 +102,43 @@
 		<!-- WRAPPER END -->
 		<!-- all js here -->
 		<!-- jquery latest version -->
+		<script>
+			var fileInput = document.getElementById('fileInput');
+			var url = 'https://api.dify.ai/v1/datasets/34892664-db8e-4a56-9aad-40ad991f34fa/document/create-by-file'
+			fileInput.addEventListener('change', function () {
+				var file = fileInput.files[0];
+				// var fileUrl = URL.createObjectURL(file);
+				var filePath = fileInput.value; // 获得上传文件的绝对路径
+			 	var fileSize = file.size/1024/1024;
+		        if (fileSize > 15) {
+		            alert("上传附件不能大于15M");
+		        }else{
+					const formData = new FormData();
+				    formData.append('file', file);
+				    const xhr = new XMLHttpRequest();
+				    xhr.open('POST', url, true);
+				    xhr.setRequestHeader('Authorization','Bearer dataset-mPM7JLZyhVLxGXEUypxSIK6q');
+					// xhr.setRequestHeader('Content-Type','application/json');
+				    xhr.upload.addEventListener('progress', function(event) {
+				    	alert("正在上传请稍后...");
+				        if (event.lengthComputable) {
+				            const percentComplete = (event.loaded / event.total) * 100;
+				            console.log(`Upload progress: ${percentComplete}%`);
+				        }
+				    });
+				    xhr.onload = function() {
+				        if (xhr.status === 200) {
+				            console.log('Upload successful:', xhr.responseText);
+				            alert("上传成功！");
+				        } else {
+				            console.error('Upload failed:', xhr.responseText);
+				            alert("上传失败...原因："+xhr.responseText);
+				        }
+				    };
+				    xhr.send(formData);
+		        }
+			});
+		</script>
 		<script src="js/vendor/jquery-3.6.0.min.js"></script>
 		<script src="js/vendor/jquery-migrate-3.3.2.min.js"></script>
 		<!-- bootstrap js -->
