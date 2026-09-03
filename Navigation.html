@@ -55,7 +55,11 @@
 			.area-404 .mr-30 { margin-right: 22px !important; }
 			.area-404 a { line-height: 2.0 !important; }
 			html, body { height: 100%; margin: 0; background: #f6f6f6; }
-			.wrapper { min-height: 100vh; }
+			.wrapper { min-height: 100vh; padding-bottom: 80px; }
+			/* 禁用吸顶：主题 main.min.js 在滚动时切换 .sticky(fixed/非fixed)，
+			   本页内容较矮时 fixed 后文档高度 ≤ 视口，滚动位置被钳回 0 又触发反向切换，
+			   fixed/回流反复循环造成滚动抖动。本页 header 只有 logo，不需要吸顶。 */
+			#sticky-menu.sticky { position: static !important; background: none !important; box-shadow: none !important; }
 		</style>
 	</head>
 	<body>	
@@ -80,7 +84,7 @@
 			<div class="area-404 pt-40 pb-40">
 				<div class="container">	
 					<div class="row">
-						<div class="col-lg-6">
+						<div class="col-lg-4">
 							<h5 class="title-1 mt-20 mb-20 widget-title-modal"><b>AI</b></h5>
 							<a class="a-box" href="https://claude.ai/chats" target="_blank">Claude</a>
 							<a class="a-box" href="https://chat.openai.com/" target="_blank">ChatGPT</a>
@@ -88,7 +92,7 @@
 							<a class="mr-30" href="https://www.doubao.com/chat/" target="_blank">豆包</a>
 							<a class="a-box" href="https://gemini.google.com/" target="_blank">Gemini</a>
 						</div>
-						<div class="col-lg-6">
+						<div class="col-lg-8">
 							<h5 class="title-1 mt-20 mb-20 widget-title-modal"><b>AI编程</b></h5>
 							<a class="a-box" href="https://www.bigmodel.cn/glm-coding?ic=KIP2KHPMOF&closedialog=true" target="_blank">智谱</a>
 							<a class="a-box" href="https://code.claude.com/docs/zh-CN/quickstart" target="_blank">Claude Code 文档</a>
@@ -104,13 +108,14 @@
 						</div>
 						<div class="col-lg-8">
 							<h5 class="title-1 mt-20 mb-20 widget-title-modal"><b>威客</b></h5>
+								<a class="mr-30" href="https://www.yuanling.com/" target="_blank">圆领</a>
 								<a class="mr-30" href="https://www.tahou.com/" target="_blank">塔猴</a>
 								<a class="mr-30" href="https://jumu.zeelin.cn/" target="_blank">剧幕</a>
 								<a class="mr-30" href="https://square.aigcsdm.com/" target="_blank">AIGC供需广场</a>
+								<a class="mr-30" href="https://www.proginn.com/" target="_blank">程序员客栈</a>
 								<a class="mr-30" href="https://www.upwork.com/" target="_blank">Upwork</a>
 								<a class="mr-30" href="https://www.fiverr.com/" target="_blank">Fiverr</a>
 								<a class="mr-30" href="https://arc.dev/" target="_blank">Arc</a>
-								
 						</div>
 						<div class="col-lg-12">
 							<h5 class="title-1 mt-20 mb-20 widget-title-modal"><b>设计</b></h5>
