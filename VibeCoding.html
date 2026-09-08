@@ -1,0 +1,1038 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Vibe Coding 接单兼职平台指南（国内为主 · 2026-09）</title>
+<style>
+  :root{
+    --bg:#f5f7fb;
+    --panel:#ffffff;
+    --panel2:#f8fafd;
+    --line:#dfe6f2;
+    --txt:#1c2740;
+    --muted:#5b6b8c;
+    --accent:#2a5cdf;
+    --klein:#002FA7;
+    --good:#0e9f6e;
+    --warn:#c77700;
+    --bad:#d93636;
+  }
+  *{margin:0;padding:0;box-sizing:border-box;}
+  body{
+    background:var(--bg);
+    color:var(--txt);
+    font-family:"Segoe UI","Microsoft YaHei",system-ui,sans-serif;
+    line-height:1.7;
+  }
+  a{color:var(--accent);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+
+  /* ===== 顶部 ===== */
+  header{
+    padding:48px 24px 32px;
+    text-align:center;
+    background:linear-gradient(180deg,rgba(0,47,167,.08),transparent 80%);
+    border-bottom:1px solid var(--line);
+  }
+  header h1{font-size:30px;letter-spacing:1px;}
+  header h1 em{color:var(--accent);font-style:normal;}
+  header p{color:var(--muted);margin-top:10px;max-width:860px;margin-left:auto;margin-right:auto;}
+  .stats{display:flex;justify-content:center;gap:28px;margin-top:22px;flex-wrap:wrap;}
+  .stat{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:12px 26px;}
+  .stat b{display:block;font-size:26px;color:var(--accent);}
+  .stat span{font-size:13px;color:var(--muted);}
+
+  /* ===== 导航 ===== */
+  nav{
+    position:sticky;top:0;z-index:50;
+    background:rgba(255,255,255,.92);backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+    display:flex;justify-content:center;gap:6px;flex-wrap:wrap;
+    padding:10px 12px;
+  }
+  nav a{
+    color:var(--muted);font-size:13.5px;padding:6px 14px;border-radius:20px;
+    border:1px solid transparent;
+  }
+  nav a:hover{color:#1c2740;text-decoration:none;background:rgba(79,124,255,.12);border-color:var(--line);}
+
+  main{max-width:1100px;margin:0 auto;padding:36px 20px 80px;}
+
+  /* ===== 分类标题 ===== */
+  .cat{margin-top:56px;}
+  .cat:first-of-type{margin-top:8px;}
+  .cat h2{
+    font-size:22px;padding-left:14px;border-left:4px solid var(--accent);
+    margin-bottom:6px;
+  }
+  .cat .cat-desc{color:var(--muted);font-size:14px;margin-bottom:20px;padding-left:18px;}
+
+  /* ===== 平台卡片 ===== */
+  .card{
+    background:var(--panel);
+    border:1px solid var(--line);
+    border-radius:14px;
+    padding:22px 24px;
+    margin-bottom:18px;
+    transition:border-color .2s;
+  }
+  .card:hover{border-color:#9db7e8;}
+  .card.done{border-color:var(--good);}
+  .card-head{display:flex;align-items:flex-start;gap:14px;flex-wrap:wrap;}
+  .check{
+    flex:none;margin-top:6px;width:22px;height:22px;border-radius:6px;
+    border:2px solid #b9c6dd;cursor:pointer;display:flex;align-items:center;justify-content:center;
+    font-size:15px;color:transparent;user-select:none;transition:all .15s;
+  }
+  .check.on{background:var(--good);border-color:var(--good);color:#fff;}
+  .card.done .p-name{color:var(--good);}
+  .p-title{flex:1;min-width:240px;}
+  .p-name{font-size:19px;font-weight:700;}
+  .p-name small{font-weight:400;color:var(--muted);font-size:13px;margin-left:8px;}
+  .stars{color:var(--warn);font-size:14px;letter-spacing:2px;}
+  .stars .off{color:#ccd6e8;}
+  .p-link{
+    flex:none;display:inline-flex;align-items:center;gap:6px;
+    background:var(--klein);color:#fff;font-size:14px;font-weight:600;
+    padding:8px 18px;border-radius:8px;margin-top:2px;
+  }
+  .p-link:hover{background:#1a4ad8;text-decoration:none;}
+  .tags{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 4px;}
+  .tag{
+    font-size:12px;padding:3px 12px;border-radius:20px;
+    background:rgba(79,124,255,.1);color:#2a5cdf;border:1px solid rgba(79,124,255,.3);
+  }
+  .tag.warn{background:rgba(255,184,79,.1);color:var(--warn);border-color:rgba(255,184,79,.3);}
+  .tag.bad{background:rgba(255,107,107,.1);color:var(--bad);border-color:rgba(255,107,107,.3);}
+  .tag.good{background:rgba(63,214,143,.1);color:var(--good);border-color:rgba(63,214,143,.3);}
+  .block{margin-top:14px;font-size:14.5px;}
+  .block h4{
+    font-size:13px;color:var(--accent);letter-spacing:1px;margin-bottom:5px;
+    display:flex;align-items:center;gap:6px;
+  }
+  .block ul{padding-left:20px;}
+  .block li{margin:4px 0;color:var(--txt);}
+  .block.caution li{color:#6b5325;}
+  .block h4.c-icon{color:var(--warn);}
+
+  /* ===== 提示框 ===== */
+  .tip{
+    background:linear-gradient(135deg,rgba(0,47,167,.06),rgba(79,124,255,.03));
+    border:1px solid #c9d8f5;border-radius:14px;
+    padding:24px 26px;margin-top:24px;
+  }
+  .tip h3{color:#2a5cdf;font-size:17px;margin-bottom:12px;}
+  .tip ol{padding-left:22px;}
+  .tip li{margin:7px 0;font-size:14.5px;}
+
+  .note{
+    background:rgba(255,184,79,.06);
+    border:1px solid rgba(255,184,79,.3);border-radius:14px;
+    padding:20px 24px;margin-top:20px;font-size:14px;color:#7a5410;
+  }
+
+  /* ===== 底部 ===== */
+  footer{
+    border-top:1px solid var(--line);
+    padding:26px;text-align:center;color:var(--muted);font-size:13px;
+  }
+  .progress-bar{
+    position:fixed;left:0;top:0;height:3px;background:var(--good);
+    width:0;z-index:99;transition:width .3s;
+  }
+  @media(max-width:640px){
+    header h1{font-size:22px;}
+    .p-link{width:100%;justify-content:center;}
+  }
+</style>
+</head>
+<body>
+<div class="progress-bar" id="pbar"></div>
+
+<header>
+  <h1><em>Vibe Coding</em> 接单兼职平台指南</h1>
+  <p>国内 12 个 + 海外 14 个，共 <b>26</b> 个可注册渠道。每张卡片左侧有勾选框，注册完一个就点一下——进度自动保存在本浏览器，下次打开不丢。星级为综合推荐度（单量 × 靠谱程度 × 适合 AI 编程接单）。</p>
+  <div class="stats">
+    <div class="stat"><b id="doneNum">0</b><span>已注册</span></div>
+    <div class="stat"><b>26</b><span>平台总数</span></div>
+    <div class="stat"><b id="pctNum">0%</b><span>完成度</span></div>
+  </div>
+</header>
+
+<nav>
+  <a href="#a">A·综合外包</a>
+  <a href="#b">B·远程社区</a>
+  <a href="#c">C·自由市场</a>
+  <a href="#d">D·海外平台</a>
+  <a href="#route">建议路线</a>
+  <a href="#pitfall">防坑指南</a>
+</nav>
+
+<main>
+
+<!-- ================= A ================= -->
+<section class="cat" id="a">
+  <h2>A · 综合软件外包平台（正规军）</h2>
+  <p class="cat-desc">有平台担保、流程规范、走对公结算的主力渠道。适合接整站、小程序、管理系统等项目制单子，是 vibe coding 发挥"以一敌三"效率优势的主战场。</p>
+
+  <div class="card" data-k="proginn">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">程序员客栈 Proginn<small>proginn.com</small></div>
+        <div class="stars">★★★★★<span class="off">☆</span></div>
+      </div>
+      <a class="p-link" href="https://www.proginn.com/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag good">资金托管</span><span class="tag">整项目 / 按天雇佣</span><span class="tag">实名认证</span><span class="tag">中高端</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>国内口碑最好的程序员自由工作平台，覆盖程序员 / 产品经理 / 设计师，需求方以创业公司和中小企业为主。</li>
+        <li>支持三种模式：整项目开发、按天远程雇佣（月结）、技术顾问，能挂简历被动等单。</li>
+        <li>实名认证 + 资金托管 + 平台签约，跑单风险低；个人主页权重高，资料完整度直接影响派单。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>认证审核较严：要传身份证 + 技能证明（GitHub / 作品 / 履历），建议提前准备好 3~5 个能打开的线上作品链接。</li>
+        <li>热门项目竞标的人多，前期报价别太高，先攒 2~3 个好评再提价。</li>
+        <li>平台抽佣 + 走对公结算，报价时把佣金成本算进去（约 5%~10% 视合同类型）。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="yuanjisong">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">猿急送<small>yuanjisong.com</small></div>
+        <div class="stars">★★★★<span class="off">☆☆</span></div>
+      </div>
+      <a class="p-link" href="https://www.yuanjisong.com/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag good">资金托管</span><span class="tag">自动派单</span><span class="tag warn">抽佣约15%</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>主打"大厂程序员兼职"，企业项目有资金托管，系统按技能标签自动派单，不用天天盯屏抢。</li>
+        <li>适合匀速跑的兼职：按天/按时计费居多，企业端项目客单价 3~15 万（到你手里按天折算）。</li>
+        <li>对履历背书友好——挂上大厂/知名项目经历，派单量明显增加。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>个人时薪天花板明显：多数标价 500~800 元/天，很少超过 1K/天，走量不走价。</li>
+        <li>抽佣约 15%（含税），到手先打八五折再评估值不值。</li>
+        <li>派单质量参差，接之前一定问清交付物清单和验收标准。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="shixian">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">实现网<small>shixian.com</small></div>
+        <div class="stars">★★★☆<span class="off">☆</span></div>
+      </div>
+      <a class="p-link" href="https://shixian.com/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag">按需雇佣</span><span class="tag">大厂工程师定位</span><span class="tag">兼职推荐制</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>定位"按需雇佣 BAT 工程师/设计师"，客单价整体高于威客类平台，客户预算意识好。</li>
+        <li>平台按项目需求主动推荐候选人，被选中后对接，省去竞标写方案。</li>
+        <li>适合有一定履历的工程师做高客单价的咨询 + 开发组合单。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>偏高端：普通履历通过率和被推荐率低，新手别指望这里开张。</li>
+        <li>平台匹配节奏慢，挂上后可能数周没动静，适合当"鱼塘"养着。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="clouderwork">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">云沃客<small>clouderwork.com</small></div>
+        <div class="stars">★★★<span class="off">☆☆</span></div>
+      </div>
+      <a class="p-link" href="https://www.clouderwork.com/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag">远程工作</span><span class="tag">项目匹配</span><span class="tag">在线办公</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>老牌远程工作平台，兼职/远程项目 + 长期远程岗位都有，自带在线协作和工时记录工具。</li>
+        <li>适合想从"接零单"过渡到"稳定远程兼职/远程全职"的人。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>近年活跃度中等，单量不如头部平台，当补充渠道即可。</li>
+        <li>远程长期岗会有面试和试用环节，不是纯接单逻辑。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="oschina">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">开源众包<small>zb.oschina.net · 开源中国旗下</small></div>
+        <div class="stars">★★<span class="off">☆☆☆</span></div>
+      </div>
+      <a class="p-link" href="https://zb.oschina.net/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag bad">需交保证金</span><span class="tag warn">虚假需求多</span><span class="tag warn">投标次数限制</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>开源中国旗下，中小微企业需求为主，项目类型杂，偶尔能捡到合适的开发单。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li><b>接单前要先交保证金</b>，且免费投标次数有限——多份 2025/2026 实测文章把它列入"避坑"名单，注册可以，充值要谨慎。</li>
+        <li>虚假需求/引流需求偏多，报价前先甄别雇主资料和历史发单。</li>
+        <li>站点偶发 502，稳定性一般。优先级放最低。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= B ================= -->
+<section class="cat" id="b">
+  <h2>B · 远程工作社区（招聘式接单）</h2>
+  <p class="cat-desc">不是传统"接单平台"，而是远程岗位与外包需求的信息集散地。单子质量普遍更高，直接和需求方对话、无平台抽佣，但需要自己甄别靠谱度。</p>
+
+  <div class="card" data-k="eleduck">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">电鸭社区<small>eleduck.com</small></div>
+        <div class="stars">★★★★★<span class="off">☆</span></div>
+      </div>
+      <a class="p-link" href="https://eleduck.com/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag good">社区氛围好</span><span class="tag">远程岗位+外包帖</span><span class="tag">无抽佣</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>国内最早的远程工作社区，"只工作，不上班"，兼职/远程外包帖子质量和透明度全网上乘。</li>
+        <li>帖子直接附预算范围和工作内容，合意直接联系发帖人，没有平台中间层抽佣。</li>
+        <li>有大量接单经验帖可抄作业（搜"接单""外包"），新手避坑资料最丰富。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>帖子制：好单子手快有手慢无，建议每天刷一次"外包"分类。</li>
+        <li>无担保交易——定金、分期、验收条款必须自己谈，参考本文底部防坑指南。</li>
+        <li>社区看头像和简介的完整度，认真写自我介绍再发帖/回帖，裸号容易被忽略。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="v2ex">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">V2EX · 酷工作<small>v2ex.com/go/jobs</small></div>
+        <div class="stars">★★★★<span class="off">☆☆</span></div>
+      </div>
+      <a class="p-link" href="https://v2ex.com/go/jobs" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag">技术社区</span><span class="tag">兼职/外包帖</span><span class="tag">无抽佣</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>高质量中文技术社区，"酷工作"节点常年有创业公司发兼职/外包/远程合作。</li>
+        <li>发帖方多为技术人/创业者，沟通成本低、需求描述专业，价格谈得拢。</li>
+        <li>自己也可以发"可接单"自我推销帖（按社区规则适度）。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>注册有门槛（需一定活跃度/邀请），新号发言受限。</li>
+        <li>同样无担保，走私人转账，小额试单建立信任后再放大。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="boss">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">BOSS直聘（筛"兼职/外包"）<small>zhipin.com</small></div>
+        <div class="stars">★★★<span class="off">☆☆</span></div>
+      </div>
+      <a class="p-link" href="https://www.zhipin.com/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag">岗位制兼职</span><span class="tag">外包公司需求多</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>搜"兼职开发""远程外包"有大量外包公司与创业团队在招人，按月结的稳定兼职不少。</li>
+        <li>适合想要"每月固定 X 千、稳定投入 Y 小时"这种节奏的人。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>本职在职者注意：BOSS 简历会被现 HR 看到（可用"隐私设置"屏蔽本公司）。</li>
+        <li>外包公司转包的单价被扒过皮，报价心理预期放低，或只接直连需求方的。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= C ================= -->
+<section class="cat" id="c">
+  <h2>C · C2C 自由市场（vibe coding 实战最热）</h2>
+  <p class="cat-desc">没有平台规则、没有抽佣（或极低），全凭个人运营。目前用 AI 编程接单变现的"第一桶金"故事，大多发生在这里——36 氪报道的月入 9 万案例，走的就是这类信息差渠道。</p>
+
+  <div class="card" data-k="goofish">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">闲鱼<small>goofish.com</small></div>
+        <div class="stars">★★★★<span class="off">☆☆</span></div>
+      </div>
+      <a class="p-link" href="https://www.goofish.com/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag good">门槛最低</span><span class="tag">挂服务被动接单</span><span class="tag warn">客单价低</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>把"网站定制 / 小程序开发 / 爬虫脚本 / 毕设辅导"做成商品链接挂出来，搜索流量自动来，这是 vibe coding 接单门槛最低的入口。</li>
+        <li>支付宝担保交易，跑单风险低；小单（几百~两千）成交快，适合快速起步攒案例。</li>
+        <li>标题关键词决定流量："小程序开发""企业官网""Python 爬虫""AI 建站"都要各挂一链接。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>程序员鱼皮亲测结论：需求不确定性高、沟通和返工成本大、客单价不高——把它当获客入口，别当长期主战场。</li>
+        <li>写清楚"含几次修改、修改范围"，否则无限改稿能把你拖死。</li>
+        <li>平台对"代做"类服务有下架风险，措辞用"定制开发/技术服务"，别写"代写""代做毕设"。</li>
+        <li>避开灰色需求（外挂、爬隐私数据、代考代做），封号事小、担责事大。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="taobao">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">淘宝<small>taobao.com</small></div>
+        <div class="stars">★★★<span class="off">☆☆</span></div>
+      </div>
+      <a class="p-link" href="https://www.taobao.com/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag">开店挂链接</span><span class="tag">比闲鱼正式</span><span class="tag warn">需运营</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>淘宝服务市场天然有"软件开发"类目，客户付费意愿和客单价略高于闲鱼。</li>
+        <li>适合闲鱼跑通模式后升级：开店、上 5~10 个标准化服务 SKU（H5 页面、企业官网、小程序模板二开）。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>开店有保证金（一般 1000 元级）；虚拟服务类目有平台抽佣和考核。</li>
+        <li>初期没销量没评价很难出单，要有耐心做基础销量。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="xhs">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">小红书<small>xiaohongshu.com</small></div>
+        <div class="stars">★★★★<span class="off">☆☆</span></div>
+      </div>
+      <a class="p-link" href="https://www.xiaohongshu.com/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag good">作品引流</span><span class="tag">高客单私域</span><span class="tag">内容门槛</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>不直接挂单，而是<b>发 vibe coding 成品引流</b>："用 AI 一天做出来的收纳记账小程序""帮实体店做的预约系统"这类笔记流量极好。</li>
+        <li>来的多是商家/个体户/学生等非技术客户——不懂技术意味着溢价空间大（同样的小程序能报平台价 2~3 倍）。</li>
+        <li>小红书黑客松等官方活动也在推 AI 编程内容，流量红利仍在。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>内容是门槛：要持续发笔记（成品录屏、前后对比、客户案例），纯广告帖没人看。</li>
+        <li>站外引流违规风险：微信别直接写在笔记里，用群聊/瞬间/主页签名等合规姿势。</li>
+        <li>非技术客户需求更飘——合同和验收清单比技术单更重要。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="douyin">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">抖音 / B站<small>douyin.com · bilibili.com</small></div>
+        <div class="stars">★★★<span class="off">☆☆</span></div>
+      </div>
+      <a class="p-link" href="https://www.douyin.com/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag">内容引流</span><span class="tag">周期长</span><span class="tag">杠杆大</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>"用 AI 给客人做了个点单小程序"全过程视频，是 2025~2026 的流量密码型内容。</li>
+        <li>B站长视频展示完整开发过程，吸引的客户质量高（创业公司、商家）；抖音短视频爆发性强。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>纯投入期长：没粉丝前基本无单，适合与闲鱼/小红书组合做，不单独押注。</li>
+        <li>更新频率要求高，先想清楚能不能持续产出再入场。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= D ================= -->
+<section class="cat" id="d">
+  <h2>D · 海外平台（接美元单，共 14 个）</h2>
+  <p class="cat-desc">同样的活儿报价能翻 3~5 倍。AI 编程类需求（Next.js、自动化脚本、MVP 快速搭建）在海外是热门品类，共 14 个渠道分四类：综合自由职业平台（Upwork / Fiverr / Freelancer / PeoplePerHour / Guru）、新兴与高端筛选制（Contra / Toptal / Arc.dev）、专精生态市场（Codeable / Shopify）、远程岗位榜与社交获客（RemoteOK / WWR / Reddit / X·LinkedIn）。英语能读写就值得试。</p>
+
+  <div class="card" data-k="upwork">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">Upwork<small>upwork.com</small></div>
+        <div class="stars">★★★★☆<span class="off">☆</span></div>
+      </div>
+      <a class="p-link" href="https://www.upwork.com/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag good">全球最大</span><span class="tag">小时单+固定单</span><span class="tag">资金托管</span><span class="tag warn">Connects要钱</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>全球最大自由职业平台，"AI-assisted MVP""Landing page""Automation script"需求海量，客户接受远程交付。</li>
+        <li>Escrow 资金托管 + 工时记录器，对双方都公平；时薪 $20~$60 的 AI 全栈单子常见。</li>
+        <li>中国开发者可注册（身份验证通过后），收款走 Payoneer / 电汇。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>投标要消耗 Connects（付费购买），冷启动期是真实成本。</li>
+        <li>新号前 3 单最难，建议低价接小单 + 要 5 星评价，再快速提价。</li>
+        <li>写Proposal要针对客户需求定制，模板化投标通过率极低——正好让 AI 帮你写。</li>
+        <li>注意合规：个人收外汇关注年度额度与申报；金额上来后考虑合规主体。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="fiverr">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">Fiverr<small>fiverr.com</small></div>
+        <div class="stars">★★★★<span class="off">☆☆</span></div>
+      </div>
+      <a class="p-link" href="https://www.fiverr.com/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag good">Gig服务包模式</span><span class="tag">被动接单</span><span class="tag">适合标准化</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>你挂服务包（Gig）客户下单，不用投标——"I'll build a modern website with AI in 3 days"这类标品非常契合 vibe coding 的快速交付能力。</li>
+        <li>三档定价（基础/标准/高级）天然引导客单价上行，做好一个爆款 Gig 能吃很久。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>新 Gig 冷启动靠搜索排名，标题关键词和首图决定生死，前期可低价冲评价。</li>
+        <li>平台抽佣 20%，定价时算进去。</li>
+        <li>响应时间影响排名，挂着 App 随时回复。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="freelancer">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">Freelancer<small>freelancer.com</small></div>
+        <div class="stars">★★★<span class="off">☆☆</span></div>
+      </div>
+      <a class="p-link" href="https://www.freelancer.com/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag warn">价格战激烈</span><span class="tag">竞标制</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>老牌全球竞标平台，项目数量多、入驻简单，小单快速成交。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>印度/巴基斯坦低价供给把价格打到地板，同质量单子报价普遍低于 Upwork。</li>
+        <li>免费投标额度少，会员推销多——优先级低于 Upwork/Fiverr。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="toptal">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">Toptal<small>toptal.com</small></div>
+        <div class="stars">★★<span class="off">☆☆☆</span></div>
+      </div>
+      <a class="p-link" href="https://www.toptal.com/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag good">时薪最高</span><span class="tag bad">筛选门槛极高</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>宣称只收"前 3%"开发者，过了筛选后时薪 $60~$150+，客户是硅谷公司和国际企业。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>英语面试 + 2~5 周多轮技术筛选，通过率约 3%，新手不建议首站冲这里。</li>
+        <li>适合履历漂亮、英语流利、想走高端远程的人当长期目标。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="pph">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">PeoplePerHour<small>peopleperhour.com · 英国老牌</small></div>
+        <div class="stars">★★★☆<span class="off">☆</span></div>
+      </div>
+      <a class="p-link" href="https://www.peopleperhour.com/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag">Hourlie 服务包</span><span class="tag">欧洲客户多</span><span class="tag">竞标+挂单双模式</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>英国最大自由职业平台，双模式并存："Hourlies" 固定价服务包（类似 Fiverr Gig）+ 传统项目竞标，可以两边同时挂。</li>
+        <li>客户以欧洲中小企业为主，Web 开发、设计、营销类目需求稳定，整体竞争烈度明显低于 Upwork/Fiverr。</li>
+        <li>对"快速建站、落地页、脚本自动化"这类标品友好，适合把 vibe coding 的交付速度作为卖点。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>新账号要先通过人工审核才能发布服务/投标（约 1~3 天），资料要认真填。</li>
+        <li>平台抽佣阶梯式：收入越多佣金越低，起步档约 20%（含首笔服务费），报价时算进去。</li>
+        <li>欧洲客户重视合同与 GDPR 细节，数据处理类需求（爬虫、用户数据）要格外谨慎。</li>
+        <li>建议作为 Upwork/Fiverr 的第二战场，分流投标。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="guru">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">Guru<small>guru.com · 美国老牌（2001 年上线）</small></div>
+        <div class="stars">★★★<span class="off">☆☆</span></div>
+      </div>
+      <a class="p-link" href="https://www.guru.com/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag">竞标制</span><span class="tag">Work Room 协作</span><span class="tag">免费额度够用</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>与 Upwork 齐名的老牌平台，项目竞标 + 长期雇佣都有，自带 Work Room 在线协作空间（消息、文件、里程碑一体）。</li>
+        <li>付款方式灵活：按里程碑 / 按任务 / 按小时 / 悬赏，且支持资金托管（SafePay），对自由职业者保障完善。</li>
+        <li>免费会员每月有 10 次投标机会，轻度使用不必一上来买会员。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>界面老旧、单量密度不如 Upwork，定位为补充渠道。</li>
+        <li>选单看雇主 "Verified Pay" 徽章和历史评价，避开未验证付款方式的雇主。</li>
+        <li>抽佣约 9%（会员档位不同有差异），会员费值不值先算投标量。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="contra">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">Contra<small>contra.com · 新兴 0 抽佣平台</small></div>
+        <div class="stars">★★★☆<span class="off">☆</span></div>
+      </div>
+      <a class="p-link" href="https://contra.com/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag good">0% 抽佣</span><span class="tag">作品集驱动</span><span class="tag">支持订阅制服务</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>主打"独立创作者经济"，对自由职业者<b>0% 抽佣</b>——成交金额全额到手（客户侧付费）。</li>
+        <li>作品集（Portfolio）驱动获客：客户刷到你的作品直接发起项目邀请，体验类似高端社交网络，不靠竞标。</li>
+        <li>支持订阅制/保留金（retainer）合作——把"AI 建站 + 每月维护迭代"打包成月费产品，收入可持续。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li><b>收款是主要门槛</b>：走 Stripe 等渠道，中国大陆身份开通受限，注册前先确认自己具备收款资质（如海外银行/合规主体）。</li>
+        <li>平台较新、单量密度低于 Upwork，更适合当英文作品集主页 + 被动获客渠道。</li>
+        <li>客户以欧美创意圈/初创为主，Profile 必须英文且视觉质量高。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="arc">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">Arc.dev<small>arc.dev · 远程开发者"猎头式"平台</small></div>
+        <div class="stars">★★★★<span class="off">☆☆</span></div>
+      </div>
+      <a class="p-link" href="https://arc.dev/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag good">平台主动匹配</span><span class="tag">远程兼职+全职</span><span class="tag">不用竞标</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>先通过 Arc 的技术评估（代码测试 + AI 视频面试），成为"已验证开发者"后，<b>平台主动把你的档案匹配给硅谷及全球公司</b>。</li>
+        <li>远程兼职（contract）与远程全职都有，开发者时薪普遍高于通用竞标平台。</li>
+        <li>不用投标、不用买 Connects：只管接面试，把获客成本降为零。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>筛选流程 2~4 周，英语口语要能撑起视频面试。</li>
+        <li>不少岗位要求与美国/欧洲时区有重叠，投递前看时区要求。</li>
+        <li>走招聘流程，成交周期长——适合中长期布局，不适合赚快钱。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="codeable">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">Codeable<small>codeable.io · WordPress/WooCommerce 专精市场</small></div>
+        <div class="stars">★★★★<span class="off">☆☆</span></div>
+      </div>
+      <a class="p-link" href="https://www.codeable.io/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag good">平均时薪高</span><span class="tag">专家申请制</span><span class="tag">需求标准化</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>只做 WordPress（含 WooCommerce、Shopify 相关）的专家平台：客户预付托管，只跟经过筛选的专家对话。</li>
+        <li>平均时薪 $70~$120，同样的活儿比通用平台高 2~3 倍，而且客户预期专业、沟通省心。</li>
+        <li>需求高度标准化——主题定制、插件开发、速度优化、bug 修复——与 AI 辅助开发的效率优势完美契合：一个下午干完报一周的钱。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>申请制：要证明 WordPress 生态的专业背景（作品、贡献、案例），录取率低。</li>
+        <li>对响应速度有考核，兼职接单要保证每天能抽出沟通时间。</li>
+        <li>只吃 WordPress 一条生态，入口窄但极深——花一周学透 Liquid 主题开发就能入场。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="remoteok">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">RemoteOK<small>remoteok.com · 全球远程岗位榜</small></div>
+        <div class="stars">★★★<span class="off">☆☆</span></div>
+      </div>
+      <a class="p-link" href="https://remoteok.com/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag">Contract/Part-time 可筛</span><span class="tag">免费直投</span><span class="tag">无抽佣</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>全球知名远程工作聚合榜，可按 Contract（合同制）和 Part-time（兼职）筛选，直接向公司投递。</li>
+        <li>大量"接受全球任何时区"（Worldwide/Anywhere）的岗位，AI / 全栈 / 自动化类需求多。</li>
+        <li>没有平台中间层：直接与雇主签合同，全额报价。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>岗位制而非接单制：走简历 + 面试流程，周期以周计。</li>
+        <li>竞争全球化，简历必须结果量化 + 附可打开的作品链接。</li>
+        <li>警惕仿冒雇主/钓鱼邮件，收款条款写进合同再动工。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="wwr">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">We Work Remotely<small>weworkremotely.com · 最大远程岗位社区之一</small></div>
+        <div class="stars">★★★<span class="off">☆☆</span></div>
+      </div>
+      <a class="p-link" href="https://weworkremotely.com/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag">开发类板块活跃</span><span class="tag">合同类型标注清晰</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>与 RemoteOK 齐名的远程岗位聚合站，Programming 板块最活跃，contract / part-time 岗位常年有新。</li>
+        <li>每个帖子标注时区要求和合同类型，筛单效率高，适合批量投递远程兼职。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>部分岗位限特定地区（US/EU only），看清 Location 再投，别浪费精力。</li>
+        <li>同为岗位制，与 RemoteOK 组合使用即可，重复投递注意简历一致性。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="reddit">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">Reddit · r/forhire 等版块<small>reddit.com/r/forhire</small></div>
+        <div class="stars">★★★<span class="off">☆☆</span></div>
+      </div>
+      <a class="p-link" href="https://www.reddit.com/r/forhire/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag good">零抽佣</span><span class="tag">[For Hire] 自荐帖</span><span class="tag warn">需养号</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>在 r/forhire 发 <b>[For Hire]</b> 自荐帖：晒服务、价格、作品集，客户直接私信成交，平台零抽佣。</li>
+        <li>r/slavelabour 有海量小额快单（脚本、爬虫、小工具、页面修改），单价低但当场成交——正好是 AI 编程 10 分钟交付的最佳练兵场。</li>
+        <li>搭配 r/webdev、r/SideProject、r/EntrepreneurRideAlong 阅读，能摸到真实需求趋势。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>新号发帖有账号年龄和 karma 门槛，先正常使用一两周养号。</li>
+        <li><b>诈骗高发区</b>：绝不接"先跑 demo / 先交付再付款"，款到或用加密货币/PayPal 账单再动工。</li>
+        <li>各版块规则严格（标题格式、发帖频率、不得刷评），违规直接封禁。</li>
+        <li>访问 Reddit 需要网络环境支持。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="x-linkedin">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">X（Twitter）· LinkedIn<small>x.com · linkedin.com · 社交获客</small></div>
+        <div class="stars">★★★☆<span class="off">☆</span></div>
+      </div>
+      <a class="p-link" href="https://www.linkedin.com/" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag">Build in Public</span><span class="tag">高客单企业客户</span><span class="tag">冷启动慢</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>海外独立开发圈盛行 <b>build in public</b>：每天发帖晒 AI 编程过程、成品录屏、收入数据，客户会主动私信找上门——这是 36 氪报道里"信息差变现"的海外版玩法。</li>
+        <li>LinkedIn 把头衔设为 "Freelance Full-stack / AI Developer" 并挂作品集，询盘质量全网最高（企业客户、预算充足），很多 $3k+ 的大单来自这里。</li>
+        <li>与 Fiverr/Upwork 主页互相导流：社交平台种草 → 服务页面成交，形成获客组合拳。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>需要持续英文内容输出，冷启动通常 1~3 个月，与闲鱼/小红书打法一样：内容是门槛也是护城河。</li>
+        <li>X 的使用需要稳定的国际网络环境。</li>
+        <li>成交后合同、发票（Stripe Invoice / Payoneer Request）全套自己搞定，没有平台兜底。</li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="card" data-k="shopify">
+    <div class="card-head">
+      <div class="check">✓</div>
+      <div class="p-title">
+        <div class="p-name">Shopify 合作伙伴/专家市场<small>partners.shopify.com</small></div>
+        <div class="stars">★★★☆<span class="off">☆</span></div>
+      </div>
+      <a class="p-link" href="https://www.shopify.com/partners" target="_blank">去注册 →</a>
+    </div>
+    <div class="tags">
+      <span class="tag">生态专家目录</span><span class="tag">客户预算好</span><span class="tag">持续返佣</span>
+    </div>
+    <div class="block">
+      <h4>◆ 特色</h4>
+      <ul>
+        <li>Shopify 官方合作伙伴体系：入驻专家目录后，客户按"建店 / 主题定制 / 迁移 / 应用开发"等需求主动找上门。</li>
+        <li>商家客户付费意愿强（市场价 $50~$150/时），且需求高度模板化——用 AI 改主题、搭店铺效率极高。</li>
+        <li>额外红利：你介绍的客户持续付费 Shopify 月费，你能拿分成，做一单吃多年。</li>
+      </ul>
+    </div>
+    <div class="block caution">
+      <h4 class="c-icon">◆ 注意事项</h4>
+      <ul>
+        <li>入驻要展示 Shopify 相关作品案例，可以先免费给 1~2 个商家做案例再申请。</li>
+        <li>生态有学习曲线（Liquid 模板语言、商家后台逻辑），上手约一周。</li>
+        <li>竞争来自全球专家，目录定位要细分——例如专做"华人出海品牌建店"，差异化更明显。</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ================= 建议路线 ================= -->
+<section class="cat" id="route">
+  <h2>建议注册顺序与打法</h2>
+  <div class="tip">
+    <h3>第一周（跑通第一单）</h3>
+    <ol>
+      <li><b>闲鱼 + 小红书</b>先挂起来：闲鱼挂 3~5 个标准化服务链接（官网/小程序/脚本），小红书发第一条成品笔记。门槛最低、反馈最快。</li>
+      <li>同步注册 <b>程序员客栈 + 猿急送</b>：认证审核要几天，正好并行。资料里的作品集直接复用你 vibe coding 做过的项目。</li>
+      <li>每天刷一次 <b>电鸭外包区</b> 和 <b>V2EX 酷工作</b>，遇到合适直接联系。</li>
+    </ol>
+    <h3 style="margin-top:20px;">第二个月（提客单价）</h3>
+    <ol>
+      <li>把跑通的品类做成标准交付流程（需求表 → 报价单 → 里程碑 → 验收单），复制到淘宝店挂店放大。</li>
+      <li>有 3 个以上成功案例后，主攻实现网的中大单；海外线从 <b>Upwork + Fiverr</b> 双平台起步，练手快单可刷 <b>Reddit r/slavelabour</b>，想走高端长期路线再申请 <b>Codeable / Arc.dev / Toptal</b>（同活 3~5 倍价）。</li>
+      <li>内容渠道（小红书/B站）持续更新——它是唯一能带来<b>溢价客户</b>（不懂技术的商家）的渠道。</li>
+    </ol>
+    <h3 style="margin-top:20px;">Vibe coding 特有优势</h3>
+    <ol>
+      <li>主打"<b>快</b>"：传统报价 2 周的官网，你 3 天交付，价格打 7 折仍有 3 倍时薪——把交付速度写进服务标题。</li>
+      <li>主打"<b>一体化</b>"：需求文档、原型、代码、部署一条龙 AI 辅助完成，报"整体解决方案"而不是"写代码"。</li>
+      <li>36 氪报道的月入 9 万案例核心是<b>信息差</b>（客户不知道 AI 能这么快），而非技术碾压——渠道运营比技术更重要。</li>
+    </ol>
+  </div>
+</section>
+
+<!-- ================= 防坑指南 ================= -->
+<section class="cat" id="pitfall">
+  <h2>通用防坑指南（每单都过一遍）</h2>
+  <div class="note">
+    <b>① 先收定金再动手</b>：行业惯例 30%~50%，一分没收的全款后置单基本是坑。｜
+    <b>② 需求必须落在文字上</b>：功能清单 + 验收标准 + 修改次数（通常含 2~3 轮），口头需求一律不当真，AI 接单时代"聊天记录即需求文档"。｜
+    <b>③ 分阶段收款</b>：原型/上线/尾款三段式，任何"全部做完再一起结"都拒绝。｜
+    <b>④ 警惕缴费型平台</b>：凡是接单前要交高额会员费/保证金（有的要 3600 元）的平台，一律先查口碑再掏钱；优先选有资金托管的。｜
+    <b>⑤ 不接灰色单</b>：外挂、爬隐私数据、代考代写、资金盘相关，无论多少钱都不碰。｜
+    <b>⑥ 交付底线：代码你自己要看得懂</b>——AI 生成的代码交付前必须自己审查、跑通、能维护，客户三个月后回来找你改 bug 时你得接得住，否则口碑归零。｜
+    <b>⑦ 版权与源码归属写进合同</b>：默认"付清全款后源码和版权转移"，防止白嫖。｜
+    <b>⑧ 在职者注意本职合同</b>：查竞业/兼职条款，接单主体和收入该申报的申报，别因小失大。｜
+    <b>⑨ 海外平台收款</b>：先办好 Payoneer / Wise 等收款账户再开张；个人年度购结汇便利化额度 5 万美元；Contra 等依赖 Stripe 的平台对中国大陆身份受限，注册前先确认收款链路走得通。
+  </div>
+</section>
+
+</main>
+
+<footer>
+  数据口径：2026-09 综合知乎/掘金/CSDN/电鸭/GitHub 接私活指南等多篇实测文章与平台公开信息整理 · 星级为主观综合推荐度 · 勾选进度保存在浏览器 localStorage
+</footer>
+
+<script>
+(function(){
+  const KEY='vibe-reg-progress';
+  const cards=[...document.querySelectorAll('.card')];
+  let state={};
+  try{state=JSON.parse(localStorage.getItem(KEY)||'{}');}catch(e){state={};}
+
+  function render(){
+    let done=0;
+    cards.forEach(c=>{
+      const on=!!state[c.dataset.k];
+      c.querySelector('.check').classList.toggle('on',on);
+      c.classList.toggle('done',on);
+      if(on)done++;
+    });
+    document.getElementById('doneNum').textContent=done;
+    document.getElementById('pctNum').textContent=Math.round(done/cards.length*100)+'%';
+    document.getElementById('pbar').style.width=(done/cards.length*100)+'%';
+  }
+  cards.forEach(c=>{
+    c.querySelector('.check').addEventListener('click',()=>{
+      state[c.dataset.k]=!state[c.dataset.k];
+      localStorage.setItem(KEY,JSON.stringify(state));
+      render();
+    });
+  });
+  render();
+})();
+</script>
+</body>
+</html>
